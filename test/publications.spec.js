@@ -1,115 +1,143 @@
-var test = require('tape');
-var { validate } = require('../validator');
-const fixtures = require('./__test__/publications.json');
+import { test, expect } from 'vitest';
+import { validate } from '../validator.js';
+import fixtures from './__test__/publications.json' with { type: 'json' };
 
-test('publications - valid', (t) => {
+test('publications - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.publicationsValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('publications - invalid', (t) => {
+test('publications - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.publicationsInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('publications[].name - valid', (t) => {
+test('publications[].name - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.nameValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('publications[].name - invalid', (t) => {
+test('publications[].name - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.nameInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('publications[].publisher - valid', (t) => {
+test('publications[].publisher - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.publisherValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('publications[].publisher - invalid', (t) => {
+test('publications[].publisher - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.publisherInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('publications[].releaseDate - valid [YYYY-MM-DD]', (t) => {
+test('publications[].releaseDate - valid [YYYY-MM-DD]', () => {
+  return new Promise((resolve) => {
   validate(fixtures.releaseDateValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('publications[].releaseDate - valid [YYYY-MM]', (t) => {
+test('publications[].releaseDate - valid [YYYY-MM]', () => {
+  return new Promise((resolve) => {
   validate(fixtures.releaseDateValid2, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('publications[].releaseDate - valid [YYYY]', (t) => {
+test('publications[].releaseDate - valid [YYYY]', () => {
+  return new Promise((resolve) => {
   validate(fixtures.releaseDateValid3, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('publications[].releaseDate - invalid', (t) => {
+test('publications[].releaseDate - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.releaseDateInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('publications[].url - valid', (t) => {
+test('publications[].url - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.urlValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('publications[].url - invalid', (t) => {
+test('publications[].url - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.urlInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('publications[].summary - valid', (t) => {
+test('publications[].summary - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.summaryValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('publications[].summary - invalid', (t) => {
+test('publications[].summary - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.summaryInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });

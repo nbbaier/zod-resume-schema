@@ -1,67 +1,83 @@
-var test = require('tape');
-var { validate } = require('../validator');
-const fixtures = require('./__test__/meta.json');
+import { test, expect } from 'vitest';
+import { validate } from '../validator.js';
+import fixtures from './__test__/meta.json' with { type: 'json' };
 
-test('meta - valid', (t) => {
+test('meta - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.metaValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('meta - invalid', (t) => {
+test('meta - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.metaInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('meta.canonical - valid', (t) => {
+test('meta.canonical - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.canonicalValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('meta.canonical - invalid', (t) => {
+test('meta.canonical - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.canonicalInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('meta.version - valid', (t) => {
+test('meta.version - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.versionValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('meta.version - invalid', (t) => {
+test('meta.version - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.versionInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('meta.lastModified - valid', (t) => {
+test('meta.lastModified - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.lastModifiedValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('meta.lastModified - invalid', (t) => {
+test('meta.lastModified - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.lastModifiedInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });

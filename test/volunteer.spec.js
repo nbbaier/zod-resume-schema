@@ -1,115 +1,143 @@
-var test = require('tape');
-var { validate } = require('../validator');
-const fixtures = require('./__test__/volunteer.json');
+import { test, expect } from 'vitest';
+import { validate } from '../validator.js';
+import fixtures from './__test__/volunteer.json' with { type: 'json' };
 
-test('volunteer - valid', (t) => {
+test('volunteer - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.volunteerValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('volunteer - invalid', (t) => {
+test('volunteer - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.volunteerInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('volunteer[].organization - valid', (t) => {
+test('volunteer[].organization - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.organizationValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('volunteer[].organization - invalid', (t) => {
+test('volunteer[].organization - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.organizationInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('volunteer[].position - valid', (t) => {
+test('volunteer[].position - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.positionValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('volunteer[].position - invalid', (t) => {
+test('volunteer[].position - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.positionInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('volunteer[].url - valid', (t) => {
+test('volunteer[].url - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.urlValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('volunteer[].url - invalid', (t) => {
+test('volunteer[].url - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.urlInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('volunteer[].startDate - valid [YYYY-MM-DD]', (t) => {
+test('volunteer[].startDate - valid [YYYY-MM-DD]', () => {
+  return new Promise((resolve) => {
   validate(fixtures.startDateValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('volunteer[].startDate - valid [YYYY-MM]', (t) => {
+test('volunteer[].startDate - valid [YYYY-MM]', () => {
+  return new Promise((resolve) => {
   validate(fixtures.startDateValid2, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('volunteer[].startDate - valid [YYYY]', (t) => {
+test('volunteer[].startDate - valid [YYYY]', () => {
+  return new Promise((resolve) => {
   validate(fixtures.startDateValid3, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('volunteer[].startDate - invalid', (t) => {
+test('volunteer[].startDate - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.startDateInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('volunteer[].endDate - valid', (t) => {
+test('volunteer[].endDate - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.endDateValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('volunteer[].endDate - invalid', (t) => {
+test('volunteer[].endDate - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.endDateInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });

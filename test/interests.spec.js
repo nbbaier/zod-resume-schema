@@ -1,67 +1,83 @@
-var test = require('tape');
-var { validate } = require('../validator');
-const fixtures = require('./__test__/interests.json');
+import { test, expect } from 'vitest';
+import { validate } from '../validator.js';
+import fixtures from './__test__/interests.json' with { type: 'json' };
 
-test('interests - valid', (t) => {
+test('interests - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.interestsValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('interests - invalid', (t) => {
+test('interests - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.interestsInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('interests[].name - valid', (t) => {
+test('interests[].name - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.nameValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('interests[].name - invalid', (t) => {
+test('interests[].name - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.nameInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('interests[].keywords - valid', (t) => {
+test('interests[].keywords - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.keywordsValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('interests[].keywords - invalid', (t) => {
+test('interests[].keywords - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.keywordsInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('interests[].keywords[item] - valid', (t) => {
+test('interests[].keywords[item] - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.keywordsItemValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('interests[].keywords[item] - invalid', (t) => {
+test('interests[].keywords[item] - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.keywordsItemInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });

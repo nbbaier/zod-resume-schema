@@ -1,83 +1,103 @@
-var test = require('tape');
-var { validate } = require('../validator');
-const fixtures = require('./__test__/skills.json');
+import { test, expect } from 'vitest';
+import { validate } from '../validator.js';
+import fixtures from './__test__/skills.json' with { type: 'json' };
 
-test('skills - valid', (t) => {
+test('skills - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.skillsValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('skills - invalid', (t) => {
+test('skills - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.skillsInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('skills[].name - valid', (t) => {
+test('skills[].name - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.nameValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('skills[].name - invalid', (t) => {
+test('skills[].name - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.nameInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('skills[].level - valid', (t) => {
+test('skills[].level - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.levelValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('skills[].level - invalid', (t) => {
+test('skills[].level - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.levelInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('skills[].keywords - valid', (t) => {
+test('skills[].keywords - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.keywordsValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('skills[].keywords - invalid', (t) => {
+test('skills[].keywords - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.keywordsInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('skills[].keywords[item] - valid', (t) => {
+test('skills[].keywords[item] - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.keywordsItemValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('skills[].keywords[item] - invalid', (t) => {
+test('skills[].keywords[item] - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.keywordsItemInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });

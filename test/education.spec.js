@@ -1,179 +1,223 @@
-var test = require('tape');
-var { validate } = require('../validator');
-const fixtures = require('./__test__/education.json');
+import { test, expect } from 'vitest';
+import { validate } from '../validator.js';
+import fixtures from './__test__/education.json' with { type: 'json' };
 
-test('eductaion - valid', (t) => {
+test('eductaion - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.educationValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('education - invalid', (t) => {
+test('education - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.educationInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('education[].institution - valid', (t) => {
+test('education[].institution - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.institutionValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('education[].institution - invalid', (t) => {
+test('education[].institution - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.institutionInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('education[].area - valid', (t) => {
+test('education[].area - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.areaValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('education[].area - invalid', (t) => {
+test('education[].area - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.areaInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('education[].studyType - valid', (t) => {
+test('education[].studyType - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.studyTypeValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('education[].studyType - invalid', (t) => {
+test('education[].studyType - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.studyTypeInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('education[].startDate - valid [YYYY-MM-DD]', (t) => {
+test('education[].startDate - valid [YYYY-MM-DD]', () => {
+  return new Promise((resolve) => {
   validate(fixtures.startDateValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('education[].startDate - valid [YYYY-MM]', (t) => {
+test('education[].startDate - valid [YYYY-MM]', () => {
+  return new Promise((resolve) => {
   validate(fixtures.startDateValid2, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('education[].startDate - valid [YYYY]', (t) => {
+test('education[].startDate - valid [YYYY]', () => {
+  return new Promise((resolve) => {
   validate(fixtures.startDateValid3, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('education[].startDate - invalid', (t) => {
+test('education[].startDate - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.startDateInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('education[].endDate - valid [YYYY-MM-DD]', (t) => {
+test('education[].endDate - valid [YYYY-MM-DD]', () => {
+  return new Promise((resolve) => {
   validate(fixtures.endDateValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('education[].endDate - valid [YYYY-MM]', (t) => {
+test('education[].endDate - valid [YYYY-MM]', () => {
+  return new Promise((resolve) => {
   validate(fixtures.endDateValid2, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('education[].endDate - valid [YYYY]', (t) => {
+test('education[].endDate - valid [YYYY]', () => {
+  return new Promise((resolve) => {
   validate(fixtures.endDateValid3, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('education[].endDate - invalid', (t) => {
+test('education[].endDate - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.endDateInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('education[].score - valid', (t) => {
+test('education[].score - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.scoreValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('education[].score - invalid', (t) => {
+test('education[].score - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.scoreInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('education[].courses - valid', (t) => {
+test('education[].courses - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.coursesValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('education[].courses - invalid', (t) => {
+test('education[].courses - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.coursesInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('education[].courses[item] - valid', (t) => {
+test('education[].courses[item] - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.coursesItemValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('education[].courses[item] - invalid', (t) => {
+test('education[].courses[item] - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.coursesItemInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
