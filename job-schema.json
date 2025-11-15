@@ -1,113 +1,109 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/job-schema.json",
-  "description": "JSON Resume Job Schema - Defines the structure of a job posting document",
-  "type": "object",
-  "properties": {
-    "title": {
-      "type": "string"
-    },
-    "company": {
-      "type": "string"
-    },
-    "type": {
-      "type": "string"
-    },
-    "date": {
-      "description": "Similar to the standard date type, but each section after the year is optional. e.g. 2014-06-29 or 2023-04",
-      "type": "string",
-      "pattern": "^([1-2][0-9]{3}-[0-1][0-9]-[0-3][0-9]|[1-2][0-9]{3}-[0-1][0-9]|[1-2][0-9]{3})$"
-    },
-    "description": {
-      "type": "string"
-    },
-    "location": {
-      "type": "object",
-      "properties": {
-        "address": {
-          "type": "string"
-        },
-        "postalCode": {
-          "type": "string"
-        },
-        "city": {
-          "type": "string"
-        },
-        "countryCode": {
-          "type": "string"
-        },
-        "region": {
-          "type": "string"
-        }
-      },
-      "additionalProperties": {}
-    },
-    "remote": {
-      "type": "string",
-      "enum": [
-        "Full",
-        "Hybrid",
-        "None"
-      ]
-    },
-    "salary": {
-      "type": "string"
-    },
-    "experience": {
-      "type": "string"
-    },
-    "responsibilities": {
-      "type": "array",
-      "items": {
-        "description": "e.g. Build out a new API for our customer base.",
-        "type": "string"
-      }
-    },
-    "qualifications": {
-      "type": "array",
-      "items": {
-        "description": "e.g. undergraduate degree, etc.",
-        "type": "string"
-      }
-    },
-    "skills": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "level": {
-            "type": "string"
-          },
-          "keywords": {
-            "type": "array",
-            "items": {
-              "description": "e.g. HTML",
-              "type": "string"
-            }
-          }
-        },
-        "additionalProperties": {}
-      }
-    },
-    "meta": {
-      "type": "object",
-      "properties": {
-        "canonical": {
-          "type": "string",
-          "format": "uri"
-        },
-        "version": {
-          "type": "string"
-        },
-        "lastModified": {
-          "type": "string"
-        }
-      },
-      "additionalProperties": {}
-    }
-  },
-  "additionalProperties": {}
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/job-schema.json",
+	"description": "JSON Resume Job Schema - Defines the structure of a job posting document",
+	"type": "object",
+	"properties": {
+		"title": {
+			"type": "string"
+		},
+		"company": {
+			"type": "string"
+		},
+		"type": {
+			"type": "string"
+		},
+		"date": {
+			"description": "Similar to the standard date type, but each section after the year is optional. e.g. 2014-06-29 or 2023-04",
+			"type": "string",
+			"pattern": "^([1-2][0-9]{3}-[0-1][0-9]-[0-3][0-9]|[1-2][0-9]{3}-[0-1][0-9]|[1-2][0-9]{3})$"
+		},
+		"description": {
+			"type": "string"
+		},
+		"location": {
+			"type": "object",
+			"properties": {
+				"address": {
+					"type": "string"
+				},
+				"postalCode": {
+					"type": "string"
+				},
+				"city": {
+					"type": "string"
+				},
+				"countryCode": {
+					"type": "string"
+				},
+				"region": {
+					"type": "string"
+				}
+			},
+			"additionalProperties": {}
+		},
+		"remote": {
+			"type": "string",
+			"enum": ["Full", "Hybrid", "None"]
+		},
+		"salary": {
+			"type": "string"
+		},
+		"experience": {
+			"type": "string"
+		},
+		"responsibilities": {
+			"type": "array",
+			"items": {
+				"description": "e.g. Build out a new API for our customer base.",
+				"type": "string"
+			}
+		},
+		"qualifications": {
+			"type": "array",
+			"items": {
+				"description": "e.g. undergraduate degree, etc.",
+				"type": "string"
+			}
+		},
+		"skills": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"level": {
+						"type": "string"
+					},
+					"keywords": {
+						"type": "array",
+						"items": {
+							"description": "e.g. HTML",
+							"type": "string"
+						}
+					}
+				},
+				"additionalProperties": {}
+			}
+		},
+		"meta": {
+			"type": "object",
+			"properties": {
+				"canonical": {
+					"type": "string",
+					"format": "uri"
+				},
+				"version": {
+					"type": "string"
+				},
+				"lastModified": {
+					"type": "string"
+				}
+			},
+			"additionalProperties": {}
+		}
+	},
+	"additionalProperties": {}
 }
