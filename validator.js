@@ -1,22 +1,27 @@
 'use strict';
-const schema = require('./schema');
-const jobSchema = require('./job-schema');
-const Validator = require('jsonschema').Validator;
 
-function validate(resumeJson, callback) {
-  const v = new Validator();
+/**
+ * Backward compatibility wrapper for the new Zod-based validator
+ *
+ * This file maintains the same API as the old validator.js but uses
+ * the new Zod-based validation under the hood.
+ */
 
-  const validation = v.validate(resumeJson, schema);
+const { validate, validateResume, parseResume } = require('./dist/validator');
+const { resumeSchema } = require('./dist/schema');
+const { jobSchema } = require('./dist/job-schema');
 
-  if (!validation.valid) {
-    return callback(validation.errors, false);
-  }
-
-  return callback(null, true);
-}
+// Also export the raw JSON schemas for backward compatibility
+const schema = require('./schema.json');
+const jobSchemaJson = require('./job-schema.json');
 
 module.exports = {
-  validate: validate,
-  schema,
-  jobSchema,
+  validate,
+  validateResume,
+  parseResume,
+  schema: resumeSchema,
+  jobSchema: jobSchema,
+  // Provide JSON schemas for tools that need them
+  schemaJson: schema,
+  jobSchemaJson: jobSchemaJson,
 };
