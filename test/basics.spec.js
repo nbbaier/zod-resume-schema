@@ -1,291 +1,363 @@
-var test = require('tape');
-var { validate } = require('../validator');
-const fixtures = require('./__test__/basics.json');
+import { test, expect } from 'vitest';
+import { validate } from '../validator.js';
+import fixtures from './__test__/basics.json' with { type: 'json' };
 
-test('basics - valid', (t) => {
+test('basics - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.basicsValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('basics - invalid', (t) => {
+test('basics - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.basicsInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('basics.name - valid', (t) => {
+test('basics.name - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.nameValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('basics.name - invalid', (t) => {
+test('basics.name - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.nameInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('basics.label - valid', (t) => {
+test('basics.label - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.labelValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('basics.label - invalid', (t) => {
+test('basics.label - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.labelInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('basics.image - valid', (t) => {
+test('basics.image - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.imageValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('basics.image - invalid', (t) => {
+test('basics.image - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.imageInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('basics.email - valid', (t) => {
+test('basics.email - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.emailValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('basics.email - invalid', (t) => {
+test('basics.email - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.emailInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('basics.phone - valid', (t) => {
+test('basics.phone - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.phoneValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('basics.phone - invalid', (t) => {
+test('basics.phone - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.phoneInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('basics.url - valid', (t) => {
+test('basics.url - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.urlValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('basics.url - invalid', (t) => {
+test('basics.url - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.urlInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('basics.summary - valid', (t) => {
+test('basics.summary - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.summaryValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('basics.summary - invalid', (t) => {
+test('basics.summary - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.summaryInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('basics.location - valid', (t) => {
+test('basics.location - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.locationValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('basics.location - invalid', (t) => {
+test('basics.location - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.locationInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('basics.location.address - valid', (t) => {
+test('basics.location.address - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.locationAddressValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('basics.location.address - invalid', (t) => {
+test('basics.location.address - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.locationAddressInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('basics.location.postal - valid', (t) => {
+test('basics.location.postal - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.locationPostalValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('basics.location.postal - invalid', (t) => {
+test('basics.location.postal - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.locationPostalInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('basics.location.city - valid', (t) => {
+test('basics.location.city - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.locationCityValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('basics.location.city - invalid', (t) => {
+test('basics.location.city - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.locationCityInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('basics.location.country - valid', (t) => {
+test('basics.location.country - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.locationCountryValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('basics.location.country - invalid', (t) => {
+test('basics.location.country - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.locationCountryInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('basics.location.region - valid', (t) => {
+test('basics.location.region - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.locationRegionValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('basics.location.region - invalid', (t) => {
+test('basics.location.region - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.locationRegionInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('basics.profiles - valid', (t) => {
+test('basics.profiles - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.profilesValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('basics.profiles - invalid', (t) => {
+test('basics.profiles - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.profilesInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('basics.profiles[].network - valid', (t) => {
+test('basics.profiles[].network - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.profilesNetworkValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('basics.profiles[].network - invalid', (t) => {
+test('basics.profiles[].network - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.profilesNetworkInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('basics.profiles[].username - valid', (t) => {
+test('basics.profiles[].username - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.profilesUsernameValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('basics.profiles[].username - invalid', (t) => {
+test('basics.profiles[].username - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.profilesUsernameInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('basics.profiles[].url - valid', (t) => {
+test('basics.profiles[].url - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.profilesUrlValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('basics.profiles[].url - invalid', (t) => {
+test('basics.profiles[].url - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.profilesUrlInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });

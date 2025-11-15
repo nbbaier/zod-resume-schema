@@ -1,211 +1,263 @@
-var test = require("tape");
-var { validate } = require("../validator");
-const fixtures = require("./__test__/work.json");
+import { test, expect } from "vitest";
+import { validate } from "../validator.js";
+import fixtures from "./__test__/work.json" with { type: "json" };
 
-test("work - valid", (t) => {
+test("work - valid", () => {
+  return new Promise((resolve) => {
   validate(fixtures.workValid, (err, valid) => {
-    t.equal(err, null, "err should be null");
-    t.true(valid, "valid is true");
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test("work - invalid", (t) => {
+test("work - invalid", () => {
+  return new Promise((resolve) => {
   validate(fixtures.workInvalid, (err, valid) => {
-    t.notEqual(err, null, "err should contain an error");
-    t.false(valid, "valid is false");
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test("work[].name - valid", (t) => {
+test("work[].name - valid", () => {
+  return new Promise((resolve) => {
   validate(fixtures.nameValid, (err, valid) => {
-    t.equal(err, null, "err should be null");
-    t.true(valid, "valid is true");
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test("work[].name - invalid", (t) => {
+test("work[].name - invalid", () => {
+  return new Promise((resolve) => {
   validate(fixtures.nameInvalid, (err, valid) => {
-    t.notEqual(err, null, "err should contain an error");
-    t.false(valid, "valid is false");
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test("work[].location - valid", (t) => {
+test("work[].location - valid", () => {
+  return new Promise((resolve) => {
   validate(fixtures.locationValid, (err, valid) => {
-    t.equal(err, null, "err should be null");
-    t.true(valid, "valid is true");
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test("work[].location - invalid", (t) => {
+test("work[].location - invalid", () => {
+  return new Promise((resolve) => {
   validate(fixtures.locationInvalid, (err, valid) => {
-    t.notEqual(err, null, "err should contain an error");
-    t.false(valid, "valid is false");
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test("work[].description - valid", (t) => {
+test("work[].description - valid", () => {
+  return new Promise((resolve) => {
   validate(fixtures.descriptionValid, (err, valid) => {
-    t.equal(err, null, "err should be null");
-    t.true(valid, "valid is true");
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test("work[].description - invalid", (t) => {
+test("work[].description - invalid", () => {
+  return new Promise((resolve) => {
   validate(fixtures.descriptionInvalid, (err, valid) => {
-    t.notEqual(err, null, "err should contain an error");
-    t.false(valid, "valid is false");
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test("work[].position - valid", (t) => {
+test("work[].position - valid", () => {
+  return new Promise((resolve) => {
   validate(fixtures.positionValid, (err, valid) => {
-    t.equal(err, null, "err should be null");
-    t.true(valid, "valid is true");
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test("work[].position - invalid", (t) => {
+test("work[].position - invalid", () => {
+  return new Promise((resolve) => {
   validate(fixtures.positionInvalid, (err, valid) => {
-    t.notEqual(err, null, "err should contain an error");
-    t.false(valid, "valid is false");
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test("work[].url - valid", (t) => {
+test("work[].url - valid", () => {
+  return new Promise((resolve) => {
   validate(fixtures.urlValid, (err, valid) => {
-    t.equal(err, null, "err should be null");
-    t.true(valid, "valid is true");
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test("work[].url - invalid", (t) => {
+test("work[].url - invalid", () => {
+  return new Promise((resolve) => {
   validate(fixtures.urlInvalid, (err, valid) => {
-    t.notEqual(err, null, "err should contain an error");
-    t.false(valid, "valid is false");
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test("work[].startDate - valid [YYYY-MM-DD]", (t) => {
+test("work[].startDate - valid [YYYY-MM-DD]", () => {
+  return new Promise((resolve) => {
   validate(fixtures.startDateValid, (err, valid) => {
-    t.equal(err, null, "err should be null");
-    t.true(valid, "valid is true");
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test("work[].startDate - valid [YYYY-MM]", (t) => {
+test("work[].startDate - valid [YYYY-MM]", () => {
+  return new Promise((resolve) => {
   validate(fixtures.startDateValid2, (err, valid) => {
-    t.equal(err, null, "err should be null");
-    t.true(valid, "valid is true");
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test("work[].startDate - valid [YYYY]", (t) => {
+test("work[].startDate - valid [YYYY]", () => {
+  return new Promise((resolve) => {
   validate(fixtures.startDateValid3, (err, valid) => {
-    t.equal(err, null, "err should be null");
-    t.true(valid, "valid is true");
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test("work[].startDate - invalid", (t) => {
+test("work[].startDate - invalid", () => {
+  return new Promise((resolve) => {
   validate(fixtures.startDateInvalid, (err, valid) => {
-    t.notEqual(err, null, "err should contain an error");
-    t.false(valid, "valid is false");
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test("work[].endDate - valid [YYYY-MM-DD]", (t) => {
+test("work[].endDate - valid [YYYY-MM-DD]", () => {
+  return new Promise((resolve) => {
   validate(fixtures.endDateValid, (err, valid) => {
-    t.equal(err, null, "err should be null");
-    t.true(valid, "valid is true");
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test("work[].endDate - valid [YYYY-MM]", (t) => {
+test("work[].endDate - valid [YYYY-MM]", () => {
+  return new Promise((resolve) => {
   validate(fixtures.endDateValid2, (err, valid) => {
-    t.equal(err, null, "err should be null");
-    t.true(valid, "valid is true");
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test("work[].endDate - valid [YYYY]", (t) => {
+test("work[].endDate - valid [YYYY]", () => {
+  return new Promise((resolve) => {
   validate(fixtures.endDateValid3, (err, valid) => {
-    t.equal(err, null, "err should be null");
-    t.true(valid, "valid is true");
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test("work[].endDate - invalid", (t) => {
+test("work[].endDate - invalid", () => {
+  return new Promise((resolve) => {
   validate(fixtures.endDateInvalid, (err, valid) => {
-    t.notEqual(err, null, "err should contain an error");
-    t.false(valid, "valid is false");
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test("work[].summary - valid", (t) => {
+test("work[].summary - valid", () => {
+  return new Promise((resolve) => {
   validate(fixtures.summaryValid, (err, valid) => {
-    t.equal(err, null, "err should be null");
-    t.true(valid, "valid is true");
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test("work[].summary - invalid", (t) => {
+test("work[].summary - invalid", () => {
+  return new Promise((resolve) => {
   validate(fixtures.summaryInvalid, (err, valid) => {
-    t.notEqual(err, null, "err should contain an error");
-    t.false(valid, "valid is false");
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test("work[].highlights - valid", (t) => {
+test("work[].highlights - valid", () => {
+  return new Promise((resolve) => {
   validate(fixtures.highlightsValid, (err, valid) => {
-    t.equal(err, null, "err should be null");
-    t.true(valid, "valid is true");
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test("work[].highlights - invalid", (t) => {
+test("work[].highlights - invalid", () => {
+  return new Promise((resolve) => {
   validate(fixtures.highlightsInvalid, (err, valid) => {
-    t.notEqual(err, null, "err should contain an error");
-    t.false(valid, "valid is false");
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test("work[].highlights[item] - valid", (t) => {
+test("work[].highlights[item] - valid", () => {
+  return new Promise((resolve) => {
   validate(fixtures.highlightsItemValid, (err, valid) => {
-    t.equal(err, null, "err should be null");
-    t.true(valid, "valid is true");
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test("work[].highlights[item] - invalid", (t) => {
+test("work[].highlights[item] - invalid", () => {
+  return new Promise((resolve) => {
   validate(fixtures.highlightsItemInvalid, (err, valid) => {
-    t.notEqual(err, null, "err should contain an error");
-    t.false(valid, "valid is false");
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });

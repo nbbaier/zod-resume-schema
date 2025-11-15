@@ -1,99 +1,123 @@
-var test = require('tape');
-var { validate } = require('../validator');
-const fixtures = require('./__test__/certificates.json');
+import { test, expect } from 'vitest';
+import { validate } from '../validator.js';
+import fixtures from './__test__/certificates.json' with { type: 'json' };
 
-test('certificates - valid', (t) => {
-  validate(fixtures.certificatesValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+test('certificates - valid', () => {
+  return new Promise((resolve) => {
+    validate(fixtures.certificatesValid, (err, valid) => {
+      expect(err).toBe(null);
+      expect(valid).toBe(true);
+      resolve();
+    });
   });
-  t.end();
 });
 
-test('certificates - invalid', (t) => {
-  validate(fixtures.certificatesInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+test('certificates - invalid', () => {
+  return new Promise((resolve) => {
+    validate(fixtures.certificatesInvalid, (err, valid) => {
+      expect(err).not.toBe(null);
+      expect(valid).toBe(false);
+      resolve();
+    });
   });
-  t.end();
 });
 
-test('certificates[].name - valid', (t) => {
-  validate(fixtures.nameValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+test('certificates[].name - valid', () => {
+  return new Promise((resolve) => {
+    validate(fixtures.nameValid, (err, valid) => {
+      expect(err).toBe(null);
+      expect(valid).toBe(true);
+      resolve();
+    });
   });
-  t.end();
 });
 
-test('certificates[].name - invalid', (t) => {
-  validate(fixtures.nameInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+test('certificates[].name - invalid', () => {
+  return new Promise((resolve) => {
+    validate(fixtures.nameInvalid, (err, valid) => {
+      expect(err).not.toBe(null);
+      expect(valid).toBe(false);
+      resolve();
+    });
   });
-  t.end();
 });
 
-test('certificates[].date - valid [YYYY-MM-DD]', (t) => {
-  validate(fixtures.dateValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+test('certificates[].date - valid [YYYY-MM-DD]', () => {
+  return new Promise((resolve) => {
+    validate(fixtures.dateValid, (err, valid) => {
+      expect(err).toBe(null);
+      expect(valid).toBe(true);
+      resolve();
+    });
   });
-  t.end();
 });
 
-test('certificates[].date - valid [YYYY-MM]', (t) => {
-  validate(fixtures.dateValid2, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+test('certificates[].date - valid [YYYY-MM]', () => {
+  return new Promise((resolve) => {
+    validate(fixtures.dateValid2, (err, valid) => {
+      expect(err).toBe(null);
+      expect(valid).toBe(true);
+      resolve();
+    });
   });
-  t.end();
 });
 
-test('certificates[].date - valid [YYYY]', (t) => {
-  validate(fixtures.dateValid3, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+test('certificates[].date - valid [YYYY]', () => {
+  return new Promise((resolve) => {
+    validate(fixtures.dateValid3, (err, valid) => {
+      expect(err).toBe(null);
+      expect(valid).toBe(true);
+      resolve();
+    });
   });
-  t.end();
 });
 
-test('certificates[].date - invalid', (t) => {
-  validate(fixtures.dateInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+test('certificates[].date - invalid', () => {
+  return new Promise((resolve) => {
+    validate(fixtures.dateInvalid, (err, valid) => {
+      expect(err).not.toBe(null);
+      expect(valid).toBe(false);
+      resolve();
+    });
   });
-  t.end();
 });
 
-test('certificates[].url - valid', (t) => {
-  validate(fixtures.urlValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+test('certificates[].url - valid', () => {
+  return new Promise((resolve) => {
+    validate(fixtures.urlValid, (err, valid) => {
+      expect(err).toBe(null);
+      expect(valid).toBe(true);
+      resolve();
+    });
   });
-  t.end();
 });
 
-test('certificates[].url - invalid', (t) => {
-  validate(fixtures.urlInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+test('certificates[].url - invalid', () => {
+  return new Promise((resolve) => {
+    validate(fixtures.urlInvalid, (err, valid) => {
+      expect(err).not.toBe(null);
+      expect(valid).toBe(false);
+      resolve();
+    });
   });
-  t.end();
 });
 
-test('certificates[].issuer - valid', (t) => {
-  validate(fixtures.issuerValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+test('certificates[].issuer - valid', () => {
+  return new Promise((resolve) => {
+    validate(fixtures.issuerValid, (err, valid) => {
+      expect(err).toBe(null);
+      expect(valid).toBe(true);
+      resolve();
+    });
   });
-  t.end();
 });
 
-test('certificates[].issuer - invalid', (t) => {
-  validate(fixtures.issuerInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+test('certificates[].issuer - invalid', () => {
+  return new Promise((resolve) => {
+    validate(fixtures.issuerInvalid, (err, valid) => {
+      expect(err).not.toBe(null);
+      expect(valid).toBe(false);
+      resolve();
+    });
   });
-  t.end();
 });

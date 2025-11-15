@@ -1,51 +1,63 @@
-var test = require('tape');
-var { validate } = require('../validator');
-const fixtures = require('./__test__/references.json');
+import { test, expect } from 'vitest';
+import { validate } from '../validator.js';
+import fixtures from './__test__/references.json' with { type: 'json' };
 
-test('references - valid', (t) => {
+test('references - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.referencesValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('references - invalid', (t) => {
+test('references - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.referencesInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('references[].name - valid', (t) => {
+test('references[].name - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.nameValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('references[].name - invalid', (t) => {
+test('references[].name - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.nameInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('references[].reference - valid', (t) => {
+test('references[].reference - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.referenceValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('references[].reference - invalid', (t) => {
+test('references[].reference - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.referenceInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });

@@ -1,8 +1,6 @@
-var test = require("tape");
-var Validator = require("jsonschema").Validator;
-
-const fixtures = require("./__test__/dates.json");
-// var mockDateSchema = require('./__test__/mockDateSchema.json');
+import { test, expect } from 'vitest';
+import { Validator } from 'jsonschema';
+import fixtures from './__test__/dates.json' with { type: 'json' };
 
 const mockDateSchema = {
   type: "string",
@@ -12,7 +10,7 @@ const mockDateSchema = {
 };
 
 function dateValidate(resumeJson, callback) {
-  var v = new Validator();
+  const v = new Validator();
 
   const validation = v.validate(resumeJson, mockDateSchema);
 
@@ -23,34 +21,42 @@ function dateValidate(resumeJson, callback) {
   return callback(null, true);
 }
 
-test("dates - YYYY-MM-DD", (t) => {
+test("dates - YYYY-MM-DD", () => {
+  return new Promise((resolve) => {
   dateValidate(fixtures.yearMonthDay, (err, valid) => {
-    t.equal(err, null, "err should be null");
-    t.true(valid, "valid is true");
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test("dates - YYYY-MM", (t) => {
+test("dates - YYYY-MM", () => {
+  return new Promise((resolve) => {
   dateValidate(fixtures.yearMonth, (err, valid) => {
-    t.equal(err, null, "err should be null");
-    t.true(valid, "valid is true");
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test("dates - YYYY", (t) => {
+test("dates - YYYY", () => {
+  return new Promise((resolve) => {
   dateValidate(fixtures.yearMonthDay, (err, valid) => {
-    t.equal(err, null, "err should be null");
-    t.true(valid, "valid is true");
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test("dates - invalid", (t) => {
+test("dates - invalid", () => {
+  return new Promise((resolve) => {
   dateValidate(fixtures.invalid, (err, valid) => {
-    t.notEqual(err, null, "err should contain an error");
-    t.false(valid, "valid is false");
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });

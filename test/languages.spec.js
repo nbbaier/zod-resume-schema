@@ -1,51 +1,63 @@
-var test = require('tape');
-var { validate } = require('../validator');
-const fixtures = require('./__test__/languages.json');
+import { test, expect } from 'vitest';
+import { validate } from '../validator.js';
+import fixtures from './__test__/languages.json' with { type: 'json' };
 
-test('languages - valid', (t) => {
+test('languages - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.languagesValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('languages - invalid', (t) => {
+test('languages - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.languagesInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('languages[].language - valid', (t) => {
+test('languages[].language - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.languageValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('languages[].language - invalid', (t) => {
+test('languages[].language - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.languageInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('languages[].fluency - valid', (t) => {
+test('languages[].fluency - valid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.fluencyValid, (err, valid) => {
-    t.equal(err, null, 'err should be null');
-    t.true(valid, 'valid is true');
+    expect(err).toBe(null);
+    expect(valid).toBe(true);
+      resolve();
   });
-  t.end();
+  });
 });
 
-test('languages[].fluency - invalid', (t) => {
+test('languages[].fluency - invalid', () => {
+  return new Promise((resolve) => {
   validate(fixtures.fluencyInvalid, (err, valid) => {
-    t.notEqual(err, null, 'err should contain an error');
-    t.false(valid, 'valid is false');
+    expect(err).not.toBe(null);
+    expect(valid).toBe(false);
+      resolve();
   });
-  t.end();
+  });
 });
