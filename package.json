@@ -1,70 +1,71 @@
 {
-  "name": "@jsonresume/schema",
-  "version": "1.1.2",
-  "description": "JSON Resume Schema",
-  "private": false,
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.js",
-      "types": "./dist/index.d.ts"
-    },
-    "./schema": {
-      "import": "./dist/schema.js",
-      "require": "./dist/schema.js",
-      "types": "./dist/schema.d.ts"
-    },
-    "./job-schema": {
-      "import": "./dist/job-schema.js",
-      "require": "./dist/job-schema.js",
-      "types": "./dist/job-schema.d.ts"
-    },
-    "./validator": {
-      "import": "./dist/validator.js",
-      "require": "./dist/validator.js",
-      "types": "./dist/validator.d.ts"
-    }
-  },
-  "scripts": {
-    "build": "tsc",
-    "prebuild": "rm -rf dist",
-    "test": "bun run build && bun run validate && bun run test-units",
-    "validate": "ajv validate -s node_modules/json-metaschema/draft-07-schema -d schema",
-    "test-units": "vitest run",
-    "preversion": "bun test",
-    "postversion": "git push --follow-tags"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/jsonresume/resume-schema.git"
-  },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/jsonresume/resume-schema/issues"
-  },
-  "files": [
-    "dist",
-    "sample.resume.json",
-    "sample.job.json",
-    "schema.json",
-    "job-schema.json",
-    "validator.js"
-  ],
-  "dependencies": {
-    "jsonschema": "^1.4.1",
-    "zod": "^4.1.12"
-  },
-  "devDependencies": {
-    "@types/node": "^24.10.1",
-    "ajv-cli": "^3.3.0",
-    "json-metaschema": "^1.3.0",
-    "tsx": "^4.20.6",
-    "typescript": "^5.9.3",
-    "vitest": "^4.0.9"
-  },
-  "engines": {
-    "node": ">=20"
-  }
+	"name": "@jsonresume/schema",
+	"version": "1.1.2",
+	"description": "JSON Resume Schema",
+	"private": false,
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js",
+			"require": "./dist/index.js"
+		},
+		"./schema": {
+			"types": "./dist/schema.d.ts",
+			"import": "./dist/schema.js",
+			"require": "./dist/schema.js"
+		},
+		"./job-schema": {
+			"types": "./dist/job-schema.d.ts",
+			"import": "./dist/job-schema.js",
+			"require": "./dist/job-schema.js"
+		},
+		"./validator": {
+			"types": "./dist/validator.d.ts",
+			"import": "./dist/validator.js",
+			"require": "./dist/validator.js"
+		}
+	},
+	"scripts": {
+		"build": "tsc",
+		"prebuild": "rm -rf dist",
+		"test": "bun run build && bun run validate && bun run test-units",
+		"coverage": "vitest run --coverage",
+		"validate": "ajv validate -s node_modules/json-metaschema/draft-07-schema -d schema",
+		"test-units": "vitest run",
+		"preversion": "bun test",
+		"postversion": "git push --follow-tags"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/jsonresume/resume-schema.git"
+	},
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/jsonresume/resume-schema/issues"
+	},
+	"files": [
+		"dist",
+		"sample.resume.json",
+		"sample.job.json",
+		"schema.json",
+		"job-schema.json",
+		"validator.js"
+	],
+	"dependencies": {
+		"jsonschema": "^1.4.1",
+		"zod": "^4.1.12"
+	},
+	"devDependencies": {
+		"@types/node": "^24.10.1",
+		"@vitest/coverage-v8": "^4.0.9",
+		"ajv-cli": "^3.3.0",
+		"json-metaschema": "^1.3.0",
+		"typescript": "^5.9.3",
+		"vitest": "^4.0.9"
+	},
+	"engines": {
+		"node": ">=20"
+	}
 }
