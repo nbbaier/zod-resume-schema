@@ -1,5 +1,6 @@
 import { ZodError } from 'zod';
 import { resumeSchema, Resume } from './schema';
+import { jobSchema, Job } from './job-schema';
 
 /**
  * Validation error format compatible with the old jsonschema validator
@@ -11,12 +12,21 @@ export interface ValidationError {
 }
 
 /**
- * Validation result
+ * Validation result for resumes
  */
 export interface ValidationResult {
   valid: boolean;
   errors?: ValidationError[];
   data?: Resume;
+}
+
+/**
+ * Validation result for jobs
+ */
+export interface JobValidationResult {
+  valid: boolean;
+  errors?: ValidationError[];
+  data?: Job;
 }
 
 /**
@@ -72,9 +82,38 @@ export function parseResume(resumeJson: unknown): Resume {
   return resumeSchema.parse(resumeJson);
 }
 
+/**
+ * Validate a job object (Promise-based)
+ */
+export function validateJob(jobJson: unknown): JobValidationResult {
+  const result = jobSchema.safeParse(jobJson);
+
+  if (result.success) {
+    return {
+      valid: true,
+      data: result.data,
+    };
+  }
+
+  return {
+    valid: false,
+    errors: formatZodErrors(result.error),
+  };
+}
+
+/**
+ * Parse and validate a job, throwing an error if invalid
+ */
+export function parseJob(jobJson: unknown): Job {
+  return jobSchema.parse(jobJson);
+}
+
 export default {
   validate,
   validateResume,
   parseResume,
+  validateJob,
+  parseJob,
   schema: resumeSchema,
+  jobSchema,
 };
