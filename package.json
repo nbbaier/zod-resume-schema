@@ -32,7 +32,7 @@
 		"prebuild": "rm -rf dist",
 		"test": "bun run build && bun run validate && bun run test-units",
 		"coverage": "vitest run --coverage",
-		"validate": "ajv validate -s node_modules/json-metaschema/draft-07-schema -d schema",
+		"validate": "ajv validate -s node_modules/json-metaschema/draft-07-schema -d schema && ajv validate -s node_modules/json-metaschema/draft-07-schema -d job-schema",
 		"test-units": "vitest run",
 		"preversion": "bun test",
 		"postversion": "git push --follow-tags"

@@ -37,8 +37,11 @@ export {
   validate,
   validateResume,
   parseResume,
+  validateJob,
+  parseJob,
   type ValidationError,
   type ValidationResult,
+  type JobValidationResult,
 } from './validator';
 
 // Default export for backward compatibility
