@@ -1,19 +1,13 @@
 # Agent Instructions
 
-## Commands
-- **Build**: `bun run build` (runs `tsc`)
-- **Test**: `bun run test` (full suite) or `bun run test-units` (unit tests only)
-- **Single Test**: `bun x vitest run test/<file>.spec.js` or `npx vitest run test/<file>.spec.js`
-- **Validate**: `bun run validate` (validates schema against metaschema)
+Zod/TypeScript implementation of the JSON Resume schema (`@jsonresume/schema`).
 
-## Code Style & Conventions
-- **Language**: TypeScript with strict mode enabled (`ES2020` target).
-- **Formatting**: Single quotes required (enforced by Prettier).
-- **Schemas**: Use `zod` for validation. Define in `src/schemas/` and export schema + inferred type.
-  - Example: `export const mySchema = z.object({...}); export type MyType = z.infer<typeof mySchema>;`
-- **Naming**: camelCase for schemas/variables, PascalCase for types/interfaces.
-- **Imports**: Use relative imports (e.g., `./schemas/basics`). Avoid circular dependencies.
-- **Structure**: 
-  - `src/schemas/*.ts`: Individual Zod definitions.
-  - `src/index.ts`: Main entry point, re-exports all schemas and types.
-- **Testing**: Use Vitest. Tests located in `test/` with `.spec.js` extension.
+## Gotchas
+- **Dual schema**: Zod in `src/` is the source of truth, but `schema.json` and `job-schema.json` are hand-maintained, with no generator. Every schema change lands in both, then `bun run validate`.
+- Unit tests import the root `validator.js`, which loads `dist/`. Run `bun run build` before `bun run test-units`, or you test a stale `dist/`. `bun run test` does both.
+- Use `bun run test`; bare `bun test` invokes Bun's runner, not the script.
+- Single test: `bun x vitest run test/<file>.spec.js` (after a build).
+- PR titles start with `fix:` (patch) or `feat:` (minor); release automation reads them. Target `main`.
+
+## Standards
+Before editing anything in `src/`, `test/`, or either JSON schema, read `CODING_STANDARDS.md`.
