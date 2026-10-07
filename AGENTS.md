@@ -11,3 +11,20 @@ Zod/TypeScript implementation of the JSON Resume schema (`@jsonresume/schema`).
 
 ## Standards
 Before editing anything in `src/`, `test/`, or either JSON schema, read `CODING_STANDARDS.md`.
+
+## Agent skills
+
+### Issue tracker
+
+Track issues in GitHub Issues for `nbbaier/zod-resume-schema`.
+Before issue operations, read `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Use the five default triage labels.
+Before triage, read `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Use a single-context layout: root `GLOSSARY.md` and `docs/adr/`.
+Before codebase exploration, read `docs/agents/domain.md`.
