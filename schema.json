@@ -1,12 +1,14 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+  "title": "Resume Schema",
   "description": "JSON Resume Schema - Defines the structure of a resume document",
   "type": "object",
   "properties": {
     "$schema": {
       "type": "string",
-      "format": "uri"
+      "format": "uri",
+      "description": "link to the version of the schema that can validate the resume"
     },
     "basics": {
       "type": "object",
@@ -15,31 +17,38 @@
           "type": "string"
         },
         "label": {
-          "type": "string"
+          "type": "string",
+          "description": "e.g. Web Developer"
         },
         "image": {
-          "type": "string"
+          "type": "string",
+          "description": "URL (as per RFC 3986) to a image in JPEG or PNG format"
         },
         "email": {
           "type": "string",
           "format": "email",
-          "pattern": "^(?!\\.)(?!.*\\.\\.)([A-Za-z0-9_'+\\-\\.]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$"
+          "pattern": "^(?:[A-Za-z0-9_'+\\-]+\\.)*[A-Za-z0-9_'+\\-]*[A-Za-z0-9_+-]@(?:[A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$",
+          "description": "e.g. thomas@gmail.com"
         },
         "phone": {
-          "type": "string"
+          "type": "string",
+          "description": "Phone numbers are stored as strings so use any format you like, e.g. 712-117-2923"
         },
         "url": {
           "type": "string",
-          "format": "uri"
+          "format": "uri",
+          "description": "URL (as per RFC 3986) to your website, e.g. personal homepage"
         },
         "summary": {
-          "type": "string"
+          "type": "string",
+          "description": "Write a short 2-3 sentence biography about yourself"
         },
         "location": {
           "type": "object",
           "properties": {
             "address": {
-              "type": "string"
+              "type": "string",
+              "description": "To add multiple address lines, use \\n. For example, 1234 Glücklichkeit Straße\\nHinterhaus 5. Etage li."
             },
             "postalCode": {
               "type": "string"
@@ -48,10 +57,12 @@
               "type": "string"
             },
             "countryCode": {
-              "type": "string"
+              "type": "string",
+              "description": "code as per ISO-3166-1 ALPHA-2, e.g. US, AU, IN"
             },
             "region": {
-              "type": "string"
+              "type": "string",
+              "description": "The general region where you live. Can be a US state, or a province, for instance."
             }
           },
           "additionalProperties": {}
@@ -62,18 +73,22 @@
             "type": "object",
             "properties": {
               "network": {
-                "type": "string"
+                "type": "string",
+                "description": "e.g. Facebook or Twitter"
               },
               "username": {
-                "type": "string"
+                "type": "string",
+                "description": "e.g. neutralthoughts"
               },
               "url": {
                 "type": "string",
-                "format": "uri"
+                "format": "uri",
+                "description": "e.g. http://twitter.example.com/neutralthoughts"
               }
             },
             "additionalProperties": {}
-          }
+          },
+          "description": "Specify any number of social networks that you participate in"
         }
       },
       "additionalProperties": {}
@@ -84,40 +99,47 @@
         "type": "object",
         "properties": {
           "name": {
-            "type": "string"
+            "type": "string",
+            "description": "e.g. Facebook"
           },
           "location": {
-            "type": "string"
+            "type": "string",
+            "description": "e.g. Menlo Park, CA"
           },
           "description": {
-            "type": "string"
+            "type": "string",
+            "description": "e.g. Social Media Company"
           },
           "position": {
-            "type": "string"
+            "type": "string",
+            "description": "e.g. Software Engineer"
           },
           "url": {
             "type": "string",
-            "format": "uri"
+            "format": "uri",
+            "description": "e.g. http://facebook.example.com"
           },
           "startDate": {
-            "description": "Similar to the standard date type, but each section after the year is optional. e.g. 2014-06-29 or 2023-04",
             "type": "string",
-            "pattern": "^([1-2][0-9]{3}-[0-1][0-9]-[0-3][0-9]|[1-2][0-9]{3}-[0-1][0-9]|[1-2][0-9]{3})$"
+            "pattern": "^([1-2][0-9]{3}-[0-1][0-9]-[0-3][0-9]|[1-2][0-9]{3}-[0-1][0-9]|[1-2][0-9]{3})$",
+            "description": "Similar to the standard date type, but each section after the year is optional. e.g. 2014-06-29 or 2023-04"
           },
           "endDate": {
-            "description": "Similar to the standard date type, but each section after the year is optional. e.g. 2014-06-29 or 2023-04",
             "type": "string",
-            "pattern": "^([1-2][0-9]{3}-[0-1][0-9]-[0-3][0-9]|[1-2][0-9]{3}-[0-1][0-9]|[1-2][0-9]{3})$"
+            "pattern": "^([1-2][0-9]{3}-[0-1][0-9]-[0-3][0-9]|[1-2][0-9]{3}-[0-1][0-9]|[1-2][0-9]{3})$",
+            "description": "Similar to the standard date type, but each section after the year is optional. e.g. 2014-06-29 or 2023-04"
           },
           "summary": {
-            "type": "string"
+            "type": "string",
+            "description": "Give an overview of your responsibilities at the company"
           },
           "highlights": {
             "type": "array",
             "items": {
-              "description": "e.g. Increased profits by 20% from 2011-2012 through viral advertising",
-              "type": "string"
-            }
+              "type": "string",
+              "description": "e.g. Increased profits by 20% from 2011-2012 through viral advertising"
+            },
+            "description": "Specify multiple accomplishments"
           }
         },
         "additionalProperties": {}
@@ -129,34 +151,39 @@
         "type": "object",
         "properties": {
           "organization": {
-            "type": "string"
+            "type": "string",
+            "description": "e.g. Facebook"
           },
           "position": {
-            "type": "string"
+            "type": "string",
+            "description": "e.g. Software Engineer"
           },
           "url": {
             "type": "string",
-            "format": "uri"
+            "format": "uri",
+            "description": "e.g. http://facebook.example.com"
           },
           "startDate": {
-            "description": "Similar to the standard date type, but each section after the year is optional. e.g. 2014-06-29 or 2023-04",
             "type": "string",
-            "pattern": "^([1-2][0-9]{3}-[0-1][0-9]-[0-3][0-9]|[1-2][0-9]{3}-[0-1][0-9]|[1-2][0-9]{3})$"
+            "pattern": "^([1-2][0-9]{3}-[0-1][0-9]-[0-3][0-9]|[1-2][0-9]{3}-[0-1][0-9]|[1-2][0-9]{3})$",
+            "description": "Similar to the standard date type, but each section after the year is optional. e.g. 2014-06-29 or 2023-04"
           },
           "endDate": {
-            "description": "Similar to the standard date type, but each section after the year is optional. e.g. 2014-06-29 or 2023-04",
             "type": "string",
-            "pattern": "^([1-2][0-9]{3}-[0-1][0-9]-[0-3][0-9]|[1-2][0-9]{3}-[0-1][0-9]|[1-2][0-9]{3})$"
+            "pattern": "^([1-2][0-9]{3}-[0-1][0-9]-[0-3][0-9]|[1-2][0-9]{3}-[0-1][0-9]|[1-2][0-9]{3})$",
+            "description": "Similar to the standard date type, but each section after the year is optional. e.g. 2014-06-29 or 2023-04"
           },
           "summary": {
-            "type": "string"
+            "type": "string",
+            "description": "Give an overview of your responsibilities at the company"
           },
           "highlights": {
             "type": "array",
             "items": {
-              "description": "e.g. Increased profits by 20% from 2011-2012 through viral advertising",
-              "type": "string"
-            }
+              "type": "string",
+              "description": "e.g. Increased profits by 20% from 2011-2012 through viral advertising"
+            },
+            "description": "Specify accomplishments and achievements"
           }
         },
         "additionalProperties": {}
@@ -168,37 +195,43 @@
         "type": "object",
         "properties": {
           "institution": {
-            "type": "string"
+            "type": "string",
+            "description": "e.g. Massachusetts Institute of Technology"
           },
           "url": {
             "type": "string",
-            "format": "uri"
+            "format": "uri",
+            "description": "e.g. http://facebook.example.com"
           },
           "area": {
-            "type": "string"
+            "type": "string",
+            "description": "e.g. Arts"
           },
           "studyType": {
-            "type": "string"
+            "type": "string",
+            "description": "e.g. Bachelor"
           },
           "startDate": {
-            "description": "Similar to the standard date type, but each section after the year is optional. e.g. 2014-06-29 or 2023-04",
             "type": "string",
-            "pattern": "^([1-2][0-9]{3}-[0-1][0-9]-[0-3][0-9]|[1-2][0-9]{3}-[0-1][0-9]|[1-2][0-9]{3})$"
+            "pattern": "^([1-2][0-9]{3}-[0-1][0-9]-[0-3][0-9]|[1-2][0-9]{3}-[0-1][0-9]|[1-2][0-9]{3})$",
+            "description": "Similar to the standard date type, but each section after the year is optional. e.g. 2014-06-29 or 2023-04"
           },
           "endDate": {
-            "description": "Similar to the standard date type, but each section after the year is optional. e.g. 2014-06-29 or 2023-04",
             "type": "string",
-            "pattern": "^([1-2][0-9]{3}-[0-1][0-9]-[0-3][0-9]|[1-2][0-9]{3}-[0-1][0-9]|[1-2][0-9]{3})$"
+            "pattern": "^([1-2][0-9]{3}-[0-1][0-9]-[0-3][0-9]|[1-2][0-9]{3}-[0-1][0-9]|[1-2][0-9]{3})$",
+            "description": "Similar to the standard date type, but each section after the year is optional. e.g. 2014-06-29 or 2023-04"
           },
           "score": {
-            "type": "string"
+            "type": "string",
+            "description": "grade point average, e.g. 3.67/4.0"
           },
           "courses": {
             "type": "array",
             "items": {
-              "description": "e.g. H1302 - Introduction to American history",
-              "type": "string"
-            }
+              "type": "string",
+              "description": "e.g. H1302 - Introduction to American history"
+            },
+            "description": "List notable courses/subjects"
           }
         },
         "additionalProperties": {}
@@ -210,22 +243,26 @@
         "type": "object",
         "properties": {
           "title": {
-            "type": "string"
+            "type": "string",
+            "description": "e.g. One of the 100 greatest minds of the century"
           },
           "date": {
-            "description": "Similar to the standard date type, but each section after the year is optional. e.g. 2014-06-29 or 2023-04",
             "type": "string",
-            "pattern": "^([1-2][0-9]{3}-[0-1][0-9]-[0-3][0-9]|[1-2][0-9]{3}-[0-1][0-9]|[1-2][0-9]{3})$"
+            "pattern": "^([1-2][0-9]{3}-[0-1][0-9]-[0-3][0-9]|[1-2][0-9]{3}-[0-1][0-9]|[1-2][0-9]{3})$",
+            "description": "Similar to the standard date type, but each section after the year is optional. e.g. 2014-06-29 or 2023-04"
           },
           "awarder": {
-            "type": "string"
+            "type": "string",
+            "description": "e.g. Time Magazine"
           },
           "summary": {
-            "type": "string"
+            "type": "string",
+            "description": "e.g. Received for my work with Quantum Physics"
           }
         },
         "additionalProperties": {}
-      }
+      },
+      "description": "Specify any awards you have received throughout your professional career"
     },
     "certificates": {
       "type": "array",
@@ -233,23 +270,27 @@
         "type": "object",
         "properties": {
           "name": {
-            "type": "string"
+            "type": "string",
+            "description": "e.g. Certified Kubernetes Administrator"
           },
           "date": {
-            "description": "Similar to the standard date type, but each section after the year is optional. e.g. 2014-06-29 or 2023-04",
             "type": "string",
-            "pattern": "^([1-2][0-9]{3}-[0-1][0-9]-[0-3][0-9]|[1-2][0-9]{3}-[0-1][0-9]|[1-2][0-9]{3})$"
+            "pattern": "^([1-2][0-9]{3}-[0-1][0-9]-[0-3][0-9]|[1-2][0-9]{3}-[0-1][0-9]|[1-2][0-9]{3})$",
+            "description": "Similar to the standard date type, but each section after the year is optional. e.g. 2014-06-29 or 2023-04"
           },
           "url": {
             "type": "string",
-            "format": "uri"
+            "format": "uri",
+            "description": "e.g. http://example.com"
           },
           "issuer": {
-            "type": "string"
+            "type": "string",
+            "description": "e.g. CNCF"
           }
         },
         "additionalProperties": {}
-      }
+      },
+      "description": "Specify any certificates you have received throughout your professional career"
     },
     "publications": {
       "type": "array",
@@ -257,26 +298,31 @@
         "type": "object",
         "properties": {
           "name": {
-            "type": "string"
+            "type": "string",
+            "description": "e.g. The World Wide Web"
           },
           "publisher": {
-            "type": "string"
+            "type": "string",
+            "description": "e.g. IEEE, Computer Magazine"
           },
           "releaseDate": {
-            "description": "Similar to the standard date type, but each section after the year is optional. e.g. 2014-06-29 or 2023-04",
             "type": "string",
-            "pattern": "^([1-2][0-9]{3}-[0-1][0-9]-[0-3][0-9]|[1-2][0-9]{3}-[0-1][0-9]|[1-2][0-9]{3})$"
+            "pattern": "^([1-2][0-9]{3}-[0-1][0-9]-[0-3][0-9]|[1-2][0-9]{3}-[0-1][0-9]|[1-2][0-9]{3})$",
+            "description": "Similar to the standard date type, but each section after the year is optional. e.g. 2014-06-29 or 2023-04"
           },
           "url": {
             "type": "string",
-            "format": "uri"
+            "format": "uri",
+            "description": "e.g. http://www.computer.org.example.com/csdl/mags/co/1996/10/rx069-abs.html"
           },
           "summary": {
-            "type": "string"
+            "type": "string",
+            "description": "Short summary of publication. e.g. Discussion of the World Wide Web, HTTP, HTML."
           }
         },
         "additionalProperties": {}
-      }
+      },
+      "description": "Specify your publications through your career"
     },
     "skills": {
       "type": "array",
@@ -284,21 +330,25 @@
         "type": "object",
         "properties": {
           "name": {
-            "type": "string"
+            "type": "string",
+            "description": "e.g. Web Development"
           },
           "level": {
-            "type": "string"
+            "type": "string",
+            "description": "e.g. Master"
           },
           "keywords": {
             "type": "array",
             "items": {
-              "description": "e.g. HTML",
-              "type": "string"
-            }
+              "type": "string",
+              "description": "e.g. HTML"
+            },
+            "description": "List some keywords pertaining to this skill"
           }
         },
         "additionalProperties": {}
-      }
+      },
+      "description": "List out your professional skill-set"
     },
     "languages": {
       "type": "array",
@@ -306,14 +356,17 @@
         "type": "object",
         "properties": {
           "language": {
-            "type": "string"
+            "type": "string",
+            "description": "e.g. English, Spanish"
           },
           "fluency": {
-            "type": "string"
+            "type": "string",
+            "description": "e.g. Fluent, Beginner"
           }
         },
         "additionalProperties": {}
-      }
+      },
+      "description": "List any other languages you speak"
     },
     "interests": {
       "type": "array",
@@ -321,13 +374,14 @@
         "type": "object",
         "properties": {
           "name": {
-            "type": "string"
+            "type": "string",
+            "description": "e.g. Philosophy"
           },
           "keywords": {
             "type": "array",
             "items": {
-              "description": "e.g. Friedrich Nietzsche",
-              "type": "string"
+              "type": "string",
+              "description": "e.g. Friedrich Nietzsche"
             }
           }
         },
@@ -340,14 +394,17 @@
         "type": "object",
         "properties": {
           "name": {
-            "type": "string"
+            "type": "string",
+            "description": "e.g. Timothy Cook"
           },
           "reference": {
-            "type": "string"
+            "type": "string",
+            "description": "e.g. Joe blogs was a great employee, who turned up to work at least once a week. He exceeded my expectations when it came to doing nothing."
           }
         },
         "additionalProperties": {}
-      }
+      },
+      "description": "List references you have received"
     },
     "projects": {
       "type": "array",
@@ -355,71 +412,84 @@
         "type": "object",
         "properties": {
           "name": {
-            "type": "string"
+            "type": "string",
+            "description": "e.g. The World Wide Web"
           },
           "description": {
-            "type": "string"
+            "type": "string",
+            "description": "Short summary of project. e.g. Collated works of 2017."
           },
           "highlights": {
             "type": "array",
             "items": {
-              "description": "e.g. Directs you close but not quite there",
-              "type": "string"
-            }
+              "type": "string",
+              "description": "e.g. Directs you close but not quite there"
+            },
+            "description": "Specify multiple features"
           },
           "keywords": {
             "type": "array",
             "items": {
-              "description": "e.g. AngularJS",
-              "type": "string"
-            }
+              "type": "string",
+              "description": "e.g. AngularJS"
+            },
+            "description": "Specify special elements involved"
           },
           "startDate": {
-            "description": "Similar to the standard date type, but each section after the year is optional. e.g. 2014-06-29 or 2023-04",
             "type": "string",
-            "pattern": "^([1-2][0-9]{3}-[0-1][0-9]-[0-3][0-9]|[1-2][0-9]{3}-[0-1][0-9]|[1-2][0-9]{3})$"
+            "pattern": "^([1-2][0-9]{3}-[0-1][0-9]-[0-3][0-9]|[1-2][0-9]{3}-[0-1][0-9]|[1-2][0-9]{3})$",
+            "description": "Similar to the standard date type, but each section after the year is optional. e.g. 2014-06-29 or 2023-04"
           },
           "endDate": {
-            "description": "Similar to the standard date type, but each section after the year is optional. e.g. 2014-06-29 or 2023-04",
             "type": "string",
-            "pattern": "^([1-2][0-9]{3}-[0-1][0-9]-[0-3][0-9]|[1-2][0-9]{3}-[0-1][0-9]|[1-2][0-9]{3})$"
+            "pattern": "^([1-2][0-9]{3}-[0-1][0-9]-[0-3][0-9]|[1-2][0-9]{3}-[0-1][0-9]|[1-2][0-9]{3})$",
+            "description": "Similar to the standard date type, but each section after the year is optional. e.g. 2014-06-29 or 2023-04"
           },
           "url": {
             "type": "string",
-            "format": "uri"
+            "format": "uri",
+            "description": "e.g. http://www.computer.org/csdl/mags/co/1996/10/rx069-abs.html"
           },
           "roles": {
             "type": "array",
             "items": {
-              "description": "e.g. Team Lead, Speaker, Writer",
-              "type": "string"
-            }
+              "type": "string",
+              "description": "e.g. Team Lead, Speaker, Writer"
+            },
+            "description": "Specify your role on this project or in company"
           },
           "entity": {
-            "type": "string"
+            "type": "string",
+            "description": "Specify the relevant company/entity affiliations e.g. 'greenpeace', 'corporationXYZ'"
           },
           "type": {
-            "type": "string"
+            "type": "string",
+            "description": " e.g. 'volunteering', 'presentation', 'talk', 'application', 'conference'"
           }
         },
         "additionalProperties": {}
-      }
+      },
+      "description": "Specify career projects"
     },
     "meta": {
       "type": "object",
       "properties": {
         "canonical": {
           "type": "string",
-          "format": "uri"
+          "format": "uri",
+          "description": "URL (as per RFC 3986) to latest version of this document"
         },
         "version": {
-          "type": "string"
+          "type": "string",
+          "description": "A version field which follows semver - e.g. v1.0.0"
         },
         "lastModified": {
-          "type": "string"
+          "type": "string",
+          "description": "Using ISO 8601 with YYYY-MM-DDThh:mm:ss"
         }
       },
-      "additionalProperties": {}
+      "additionalProperties": {},
+      "description": "The schema version and any other tooling configuration lives here"
     }
   },
   "additionalProperties": {}

@@ -5,9 +5,10 @@ import { z } from 'zod';
  */
 export const interestSchema = z
   .object({
-    /** e.g. Philosophy */
-    name: z.string().optional(),
-    keywords: z.array(z.string().describe('e.g. Friedrich Nietzsche')).optional(),
+    name: z.string().describe('e.g. Philosophy').optional(),
+    keywords: z
+      .array(z.string().describe('e.g. Friedrich Nietzsche'))
+      .optional(),
   })
   .passthrough();
 

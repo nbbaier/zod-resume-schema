@@ -21,36 +21,69 @@ import { metaSchema } from './schemas/meta';
  */
 export const resumeSchema = z
   .object({
-    /** Link to the version of the schema that can validate the resume */
-    $schema: z.string().url().optional(),
+    $schema: z
+      .string()
+      .url()
+      .describe(
+        'link to the version of the schema that can validate the resume',
+      )
+      .optional(),
     basics: basicsSchema.optional(),
     work: z.array(workSchema).optional(),
     volunteer: z.array(volunteerSchema).optional(),
     education: z.array(educationSchema).optional(),
-    /** Specify any awards you have received throughout your professional career */
-    awards: z.array(awardSchema).optional(),
-    /** Specify any certificates you have received throughout your professional career */
-    certificates: z.array(certificateSchema).optional(),
-    /** Specify your publications through your career */
-    publications: z.array(publicationSchema).optional(),
-    /** List out your professional skill-set */
-    skills: z.array(skillSchema).optional(),
-    /** List any other languages you speak */
-    languages: z.array(languageSchema).optional(),
+    awards: z
+      .array(awardSchema)
+      .describe(
+        'Specify any awards you have received throughout your professional career',
+      )
+      .optional(),
+    certificates: z
+      .array(certificateSchema)
+      .describe(
+        'Specify any certificates you have received throughout your professional career',
+      )
+      .optional(),
+    publications: z
+      .array(publicationSchema)
+      .describe('Specify your publications through your career')
+      .optional(),
+    skills: z
+      .array(skillSchema)
+      .describe('List out your professional skill-set')
+      .optional(),
+    languages: z
+      .array(languageSchema)
+      .describe('List any other languages you speak')
+      .optional(),
     interests: z.array(interestSchema).optional(),
-    /** List references you have received */
-    references: z.array(referenceSchema).optional(),
-    /** Specify career projects */
-    projects: z.array(projectSchema).optional(),
-    /** The schema version and any other tooling configuration lives here */
-    meta: metaSchema.optional(),
+    references: z
+      .array(referenceSchema)
+      .describe('List references you have received')
+      .optional(),
+    projects: z
+      .array(projectSchema)
+      .describe('Specify career projects')
+      .optional(),
+    meta: metaSchema
+      .describe(
+        'The schema version and any other tooling configuration lives here',
+      )
+      .optional(),
   })
   .passthrough();
 
 export type Resume = z.infer<typeof resumeSchema>;
 
 // Re-export all individual schemas for modular use
-export { basicsSchema, type Basics, locationSchema, type Location, profileSchema, type Profile } from './schemas/basics';
+export {
+  basicsSchema,
+  type Basics,
+  locationSchema,
+  type Location,
+  profileSchema,
+  type Profile,
+} from './schemas/basics';
 export { workSchema, type Work } from './schemas/work';
 export { volunteerSchema, type Volunteer } from './schemas/volunteer';
 export { educationSchema, type Education } from './schemas/education';

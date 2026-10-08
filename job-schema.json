@@ -1,109 +1,134 @@
 {
-	"$schema": "http://json-schema.org/draft-07/schema#",
-	"$id": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/job-schema.json",
-	"description": "JSON Resume Job Schema - Defines the structure of a job posting document",
-	"type": "object",
-	"properties": {
-		"title": {
-			"type": "string"
-		},
-		"company": {
-			"type": "string"
-		},
-		"type": {
-			"type": "string"
-		},
-		"date": {
-			"description": "Similar to the standard date type, but each section after the year is optional. e.g. 2014-06-29 or 2023-04",
-			"type": "string",
-			"pattern": "^([1-2][0-9]{3}-[0-1][0-9]-[0-3][0-9]|[1-2][0-9]{3}-[0-1][0-9]|[1-2][0-9]{3})$"
-		},
-		"description": {
-			"type": "string"
-		},
-		"location": {
-			"type": "object",
-			"properties": {
-				"address": {
-					"type": "string"
-				},
-				"postalCode": {
-					"type": "string"
-				},
-				"city": {
-					"type": "string"
-				},
-				"countryCode": {
-					"type": "string"
-				},
-				"region": {
-					"type": "string"
-				}
-			},
-			"additionalProperties": {}
-		},
-		"remote": {
-			"type": "string",
-			"enum": ["Full", "Hybrid", "None"]
-		},
-		"salary": {
-			"type": "string"
-		},
-		"experience": {
-			"type": "string"
-		},
-		"responsibilities": {
-			"type": "array",
-			"items": {
-				"description": "e.g. Build out a new API for our customer base.",
-				"type": "string"
-			}
-		},
-		"qualifications": {
-			"type": "array",
-			"items": {
-				"description": "e.g. undergraduate degree, etc.",
-				"type": "string"
-			}
-		},
-		"skills": {
-			"type": "array",
-			"items": {
-				"type": "object",
-				"properties": {
-					"name": {
-						"type": "string"
-					},
-					"level": {
-						"type": "string"
-					},
-					"keywords": {
-						"type": "array",
-						"items": {
-							"description": "e.g. HTML",
-							"type": "string"
-						}
-					}
-				},
-				"additionalProperties": {}
-			}
-		},
-		"meta": {
-			"type": "object",
-			"properties": {
-				"canonical": {
-					"type": "string",
-					"format": "uri"
-				},
-				"version": {
-					"type": "string"
-				},
-				"lastModified": {
-					"type": "string"
-				}
-			},
-			"additionalProperties": {}
-		}
-	},
-	"additionalProperties": {}
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/job-schema.json",
+  "title": "Job Description Schema",
+  "description": "JSON Resume Job Schema - Defines the structure of a job posting document",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "e.g. Web Developer"
+    },
+    "company": {
+      "type": "string",
+      "description": "e.g. Microsoft"
+    },
+    "type": {
+      "type": "string",
+      "description": "Full-time, part-time, contract, etc."
+    },
+    "date": {
+      "type": "string",
+      "pattern": "^([1-2][0-9]{3}-[0-1][0-9]-[0-3][0-9]|[1-2][0-9]{3}-[0-1][0-9]|[1-2][0-9]{3})$",
+      "description": "Similar to the standard date type, but each section after the year is optional. e.g. 2014-06-29 or 2023-04"
+    },
+    "description": {
+      "type": "string",
+      "description": "Write a short description about the job"
+    },
+    "location": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string",
+          "description": "To add multiple address lines, use \\n. For example, 1234 Glücklichkeit Straße\\nHinterhaus 5. Etage li."
+        },
+        "postalCode": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string",
+          "description": "code as per ISO-3166-1 ALPHA-2, e.g. US, AU, IN"
+        },
+        "region": {
+          "type": "string",
+          "description": "The general region where you live. Can be a US state, or a province, for instance."
+        }
+      },
+      "additionalProperties": {}
+    },
+    "remote": {
+      "type": "string",
+      "enum": [
+        "Full",
+        "Hybrid",
+        "None"
+      ],
+      "description": "The level of remote work available"
+    },
+    "salary": {
+      "type": "string",
+      "description": "e.g. 100000"
+    },
+    "experience": {
+      "type": "string",
+      "description": "e.g. Senior or Junior or Mid-level"
+    },
+    "responsibilities": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "description": "e.g. Build out a new API for our customer base."
+      },
+      "description": "What the job entails"
+    },
+    "qualifications": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "description": "e.g. undergraduate degree, etc."
+      },
+      "description": "List out your qualifications"
+    },
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "e.g. Web Development"
+          },
+          "level": {
+            "type": "string",
+            "description": "e.g. Master"
+          },
+          "keywords": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "description": "e.g. HTML"
+            },
+            "description": "List some keywords pertaining to this skill"
+          }
+        },
+        "additionalProperties": {}
+      },
+      "description": "List out your professional skill-set"
+    },
+    "meta": {
+      "type": "object",
+      "properties": {
+        "canonical": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL (as per RFC 3986) to latest version of this document"
+        },
+        "version": {
+          "type": "string",
+          "description": "A version field which follows semver - e.g. v1.0.0"
+        },
+        "lastModified": {
+          "type": "string",
+          "description": "Using ISO 8601 with YYYY-MM-DDThh:mm:ss"
+        }
+      },
+      "additionalProperties": {},
+      "description": "The schema version and any other tooling configuration lives here"
+    }
+  },
+  "additionalProperties": {}
 }

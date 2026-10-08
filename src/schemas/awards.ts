@@ -6,13 +6,16 @@ import { iso8601Schema } from './iso8601';
  */
 export const awardSchema = z
   .object({
-    /** e.g. One of the 100 greatest minds of the century */
-    title: z.string().optional(),
+    title: z
+      .string()
+      .describe('e.g. One of the 100 greatest minds of the century')
+      .optional(),
     date: iso8601Schema.optional(),
-    /** e.g. Time Magazine */
-    awarder: z.string().optional(),
-    /** e.g. Received for my work with Quantum Physics */
-    summary: z.string().optional(),
+    awarder: z.string().describe('e.g. Time Magazine').optional(),
+    summary: z
+      .string()
+      .describe('e.g. Received for my work with Quantum Physics')
+      .optional(),
   })
   .passthrough();
 

@@ -5,10 +5,8 @@ import { z } from 'zod';
  */
 export const languageSchema = z
   .object({
-    /** e.g. English, Spanish */
-    language: z.string().optional(),
-    /** e.g. Fluent, Beginner */
-    fluency: z.string().optional(),
+    language: z.string().describe('e.g. English, Spanish').optional(),
+    fluency: z.string().describe('e.g. Fluent, Beginner').optional(),
   })
   .passthrough();
 

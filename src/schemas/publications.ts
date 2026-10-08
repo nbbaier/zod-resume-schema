@@ -6,15 +6,22 @@ import { iso8601Schema } from './iso8601';
  */
 export const publicationSchema = z
   .object({
-    /** e.g. The World Wide Web */
-    name: z.string().optional(),
-    /** e.g. IEEE, Computer Magazine */
-    publisher: z.string().optional(),
+    name: z.string().describe('e.g. The World Wide Web').optional(),
+    publisher: z.string().describe('e.g. IEEE, Computer Magazine').optional(),
     releaseDate: iso8601Schema.optional(),
-    /** e.g. http://www.computer.org.example.com/csdl/mags/co/1996/10/rx069-abs.html */
-    url: z.string().url().optional(),
-    /** Short summary of publication. e.g. Discussion of the World Wide Web, HTTP, HTML. */
-    summary: z.string().optional(),
+    url: z
+      .string()
+      .url()
+      .describe(
+        'e.g. http://www.computer.org.example.com/csdl/mags/co/1996/10/rx069-abs.html',
+      )
+      .optional(),
+    summary: z
+      .string()
+      .describe(
+        'Short summary of publication. e.g. Discussion of the World Wide Web, HTTP, HTML.',
+      )
+      .optional(),
   })
   .passthrough();
 

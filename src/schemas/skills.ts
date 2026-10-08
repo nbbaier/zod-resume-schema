@@ -5,12 +5,12 @@ import { z } from 'zod';
  */
 export const skillSchema = z
   .object({
-    /** e.g. Web Development */
-    name: z.string().optional(),
-    /** e.g. Master */
-    level: z.string().optional(),
-    /** List some keywords pertaining to this skill */
-    keywords: z.array(z.string().describe('e.g. HTML')).optional(),
+    name: z.string().describe('e.g. Web Development').optional(),
+    level: z.string().describe('e.g. Master').optional(),
+    keywords: z
+      .array(z.string().describe('e.g. HTML'))
+      .describe('List some keywords pertaining to this skill')
+      .optional(),
   })
   .passthrough();
 
