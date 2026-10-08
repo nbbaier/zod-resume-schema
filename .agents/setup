@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Orb setup for @jsonresume/schema: Bun + Node toolchain (preinstalled in the
+# base template), dependencies from the lockfile, and a built dist/ so the
+# root validator.js and unit tests are ready to run immediately.
+
+cd "$(dirname "$0")/.."
+
+step() {
+	printf '[setup] %s\n' "$*"
+}
+
+# --- Toolchain -------------------------------------------------------------
+# The Amp base template ships Bun and Node >= 20, which is what this repo
+# needs (see "engines" in package.json). Fail fast with a clear message if a
+# future base image drops either, rather than silently testing against the
+# wrong toolchain.
+command -v bun >/dev/null 2>&1 || {
+	step "ERROR: bun is not installed; expected in the Amp base template"
+	exit 1
+}
+command -v node >/dev/null 2>&1 || {
+	step "ERROR: node is not installed; expected in the Amp base template"
+	exit 1
+}
+step "toolchain: bun $(bun --version), node $(node --version)"
+
+# --- Dependencies ----------------------------------------------------------
+# bun install is idempotent: on a warm snapshot it verifies node_modules
+# against bun.lock and exits quickly.
+step "installing dependencies from bun.lock"
+bun install --frozen-lockfile
+
+# --- Build -----------------------------------------------------------------
+# Prebuild dist/ so validator.js (loaded by unit tests) and the package
+# exports work without a prior build. tsc is fast; the prebuild script wipes
+# dist/ first, so repeated runs converge.
+step "building dist/"
+bun run build
+
+step "done"
