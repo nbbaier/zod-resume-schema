@@ -3,7 +3,7 @@
 Zod/TypeScript implementation of the JSON Resume schema (`@jsonresume/schema`).
 
 ## Gotchas
-- **Dual schema**: Zod in `src/` is the source of truth, but `schema.json` and `job-schema.json` are hand-maintained, with no generator. Every schema change lands in both, then `bun run validate`.
+- **Generated JSON schemas**: `schema.json` and `job-schema.json` are generated from the Zod schemas by `bun run build` (via `scripts/build-schemas.ts`). Never edit them by hand — change the Zod schemas (field descriptions via `.describe()`) and rebuild. `bun run validate` then checks they are valid draft-07.
 - Unit tests import the root `validator.js`, which loads `dist/`. Run `bun run build` before `bun run test-units`, or you test a stale `dist/`. `bun run test` does both.
 - Use `bun run test`; bare `bun test` invokes Bun's runner, not the script.
 - Single test: `bun x vitest run test/<file>.spec.js` (after a build).

@@ -6,21 +6,25 @@ import { iso8601Schema } from './iso8601';
  */
 export const educationSchema = z
   .object({
-    /** e.g. Massachusetts Institute of Technology */
-    institution: z.string().optional(),
-    /** e.g. http://facebook.example.com */
-    url: z.string().url().optional(),
-    /** e.g. Arts */
-    area: z.string().optional(),
-    /** e.g. Bachelor */
-    studyType: z.string().optional(),
+    institution: z
+      .string()
+      .describe('e.g. Massachusetts Institute of Technology')
+      .optional(),
+    url: z
+      .string()
+      .url()
+      .describe('e.g. http://facebook.example.com')
+      .optional(),
+    area: z.string().describe('e.g. Arts').optional(),
+    studyType: z.string().describe('e.g. Bachelor').optional(),
     startDate: iso8601Schema.optional(),
     endDate: iso8601Schema.optional(),
-    /** grade point average, e.g. 3.67/4.0 */
-    score: z.string().optional(),
-    /** List notable courses/subjects */
+    score: z.string().describe('grade point average, e.g. 3.67/4.0').optional(),
     courses: z
-      .array(z.string().describe('e.g. H1302 - Introduction to American history'))
+      .array(
+        z.string().describe('e.g. H1302 - Introduction to American history'),
+      )
+      .describe('List notable courses/subjects')
       .optional(),
   })
   .passthrough();

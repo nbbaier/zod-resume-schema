@@ -6,26 +6,44 @@ import { iso8601Schema } from './iso8601';
  */
 export const projectSchema = z
   .object({
-    /** e.g. The World Wide Web */
-    name: z.string().optional(),
-    /** Short summary of project. e.g. Collated works of 2017. */
-    description: z.string().optional(),
-    /** Specify multiple features */
+    name: z.string().describe('e.g. The World Wide Web').optional(),
+    description: z
+      .string()
+      .describe('Short summary of project. e.g. Collated works of 2017.')
+      .optional(),
     highlights: z
       .array(z.string().describe('e.g. Directs you close but not quite there'))
+      .describe('Specify multiple features')
       .optional(),
-    /** Specify special elements involved */
-    keywords: z.array(z.string().describe('e.g. AngularJS')).optional(),
+    keywords: z
+      .array(z.string().describe('e.g. AngularJS'))
+      .describe('Specify special elements involved')
+      .optional(),
     startDate: iso8601Schema.optional(),
     endDate: iso8601Schema.optional(),
-    /** e.g. http://www.computer.org/csdl/mags/co/1996/10/rx069-abs.html */
-    url: z.string().url().optional(),
-    /** Specify your role on this project or in company */
-    roles: z.array(z.string().describe('e.g. Team Lead, Speaker, Writer')).optional(),
-    /** Specify the relevant company/entity affiliations e.g. 'greenpeace', 'corporationXYZ' */
-    entity: z.string().optional(),
-    /** e.g. 'volunteering', 'presentation', 'talk', 'application', 'conference' */
-    type: z.string().optional(),
+    url: z
+      .string()
+      .url()
+      .describe(
+        'e.g. http://www.computer.org/csdl/mags/co/1996/10/rx069-abs.html',
+      )
+      .optional(),
+    roles: z
+      .array(z.string().describe('e.g. Team Lead, Speaker, Writer'))
+      .describe('Specify your role on this project or in company')
+      .optional(),
+    entity: z
+      .string()
+      .describe(
+        "Specify the relevant company/entity affiliations e.g. 'greenpeace', 'corporationXYZ'",
+      )
+      .optional(),
+    type: z
+      .string()
+      .describe(
+        " e.g. 'volunteering', 'presentation', 'talk', 'application', 'conference'",
+      )
+      .optional(),
   })
   .passthrough();
 

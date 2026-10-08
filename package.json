@@ -28,11 +28,11 @@
 		}
 	},
 	"scripts": {
-		"build": "tsc",
+		"build": "tsc && bun scripts/build-schemas.ts",
 		"prebuild": "rm -rf dist",
 		"test": "bun run build && bun run validate && bun run test-units",
 		"coverage": "vitest run --coverage",
-		"validate": "ajv validate -s node_modules/json-metaschema/draft-07-schema -d schema && ajv validate -s node_modules/json-metaschema/draft-07-schema -d job-schema",
+		"validate": "bun scripts/validate-schemas.ts",
 		"test-units": "vitest run",
 		"preversion": "bun test",
 		"postversion": "git push --follow-tags"
@@ -60,7 +60,6 @@
 	"devDependencies": {
 		"@types/node": "^26.6.4",
 		"@vitest/coverage-v8": "^5.0.3",
-		"ajv-cli": "^5.0.0",
 		"json-metaschema": "^1.3.0",
 		"typescript": "^7.0.2",
 		"vitest": "^5.0.3"
