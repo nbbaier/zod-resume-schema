@@ -124,13 +124,6 @@ export default defineConfig({
       },
     },
     {
-      files: ['test/dates.spec.js'],
-      plugins: ['vitest'],
-      rules: {
-        'vitest/prefer-strict-equal': 'off',
-      },
-    },
-    {
       files: ['test/job.spec.js'],
       plugins: ['vitest'],
       rules: {
