@@ -100,12 +100,6 @@ export default defineConfig({
       },
     },
     {
-      files: ['validator.js'],
-      rules: {
-        'object-shorthand': 'off',
-      },
-    },
-    {
       files: ['src/schemas/iso8601.ts'],
       rules: {
         'prefer-named-capture-group': 'off',

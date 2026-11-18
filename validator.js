@@ -20,8 +20,8 @@ module.exports = {
   validateResume,
   parseResume,
   schema: resumeSchema,
-  jobSchema: jobSchema,
+  jobSchema,
   // Provide JSON schemas for tools that need them
   schemaJson: schema,
-  jobSchemaJson: jobSchemaJson,
+  jobSchemaJson,
 };
