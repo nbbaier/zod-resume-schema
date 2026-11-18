@@ -24,8 +24,8 @@ export const volunteerSchema = z
         z
           .string()
           .describe(
-            'e.g. Increased profits by 20% from 2011-2012 through viral advertising',
-          ),
+            'e.g. Increased profits by 20% from 2011-2012 through viral advertising'
+          )
       )
       .describe('Specify accomplishments and achievements')
       .optional(),

@@ -26,8 +26,8 @@ export const workSchema = z
         z
           .string()
           .describe(
-            'e.g. Increased profits by 20% from 2011-2012 through viral advertising',
-          ),
+            'e.g. Increased profits by 20% from 2011-2012 through viral advertising'
+          )
       )
       .describe('Specify multiple accomplishments')
       .optional(),

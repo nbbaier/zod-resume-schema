@@ -8,7 +8,7 @@ export const locationSchema = z
     address: z
       .string()
       .describe(
-        'To add multiple address lines, use \\n. For example, 1234 Glücklichkeit Straße\\nHinterhaus 5. Etage li.',
+        'To add multiple address lines, use \\n. For example, 1234 Glücklichkeit Straße\\nHinterhaus 5. Etage li.'
       )
       .optional(),
     postalCode: z.string().optional(),
@@ -20,7 +20,7 @@ export const locationSchema = z
     region: z
       .string()
       .describe(
-        'The general region where you live. Can be a US state, or a province, for instance.',
+        'The general region where you live. Can be a US state, or a province, for instance.'
       )
       .optional(),
   })
@@ -60,7 +60,7 @@ export const basicsSchema = z
     phone: z
       .string()
       .describe(
-        'Phone numbers are stored as strings so use any format you like, e.g. 712-117-2923',
+        'Phone numbers are stored as strings so use any format you like, e.g. 712-117-2923'
       )
       .optional(),
     url: z

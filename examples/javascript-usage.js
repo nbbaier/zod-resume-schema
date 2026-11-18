@@ -43,7 +43,8 @@ try {
 // Example 4: Full resume example
 console.log('\nExample 4: Full resume validation');
 const fullResume = {
-  $schema: 'https://raw.githubusercontent.com/jsonresume/resume-schema/master/schema.json',
+  $schema:
+    'https://raw.githubusercontent.com/jsonresume/resume-schema/master/schema.json',
   basics: {
     name: 'Jane Smith',
     label: 'Full Stack Developer',
@@ -124,7 +125,10 @@ const fullResume = {
 const fullResult = validateResume(fullResume);
 console.log('Full resume valid:', fullResult.valid);
 if (fullResult.valid) {
-  console.log('Validated sections:', Object.keys(fullResult.data).filter(k => k !== '$schema'));
+  console.log(
+    'Validated sections:',
+    Object.keys(fullResult.data).filter((k) => k !== '$schema')
+  );
 }
 
 // Example 5: Error handling

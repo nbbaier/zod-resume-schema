@@ -25,7 +25,7 @@ export const projectSchema = z
       .string()
       .url()
       .describe(
-        'e.g. http://www.computer.org/csdl/mags/co/1996/10/rx069-abs.html',
+        'e.g. http://www.computer.org/csdl/mags/co/1996/10/rx069-abs.html'
       )
       .optional(),
     roles: z
@@ -35,13 +35,13 @@ export const projectSchema = z
     entity: z
       .string()
       .describe(
-        "Specify the relevant company/entity affiliations e.g. 'greenpeace', 'corporationXYZ'",
+        "Specify the relevant company/entity affiliations e.g. 'greenpeace', 'corporationXYZ'"
       )
       .optional(),
     type: z
       .string()
       .describe(
-        " e.g. 'volunteering', 'presentation', 'talk', 'application', 'conference'",
+        " e.g. 'volunteering', 'presentation', 'talk', 'application', 'conference'"
       )
       .optional(),
   })

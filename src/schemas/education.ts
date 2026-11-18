@@ -22,7 +22,7 @@ export const educationSchema = z
     score: z.string().describe('grade point average, e.g. 3.67/4.0').optional(),
     courses: z
       .array(
-        z.string().describe('e.g. H1302 - Introduction to American history'),
+        z.string().describe('e.g. H1302 - Introduction to American history')
       )
       .describe('List notable courses/subjects')
       .optional(),

@@ -13,6 +13,8 @@ export const iso8601Schema = z
     /^([1-2][0-9]{3}-[0-1][0-9]-[0-3][0-9]|[1-2][0-9]{3}-[0-1][0-9]|[1-2][0-9]{3})$/,
     'Date must be in ISO 8601 format (YYYY-MM-DD, YYYY-MM, or YYYY)'
   )
-  .describe('Similar to the standard date type, but each section after the year is optional. e.g. 2014-06-29 or 2023-04');
+  .describe(
+    'Similar to the standard date type, but each section after the year is optional. e.g. 2014-06-29 or 2023-04'
+  );
 
 export type Iso8601 = z.infer<typeof iso8601Schema>;

@@ -38,7 +38,7 @@ export const jobSchema = z
       .optional(),
     responsibilities: z
       .array(
-        z.string().describe('e.g. Build out a new API for our customer base.'),
+        z.string().describe('e.g. Build out a new API for our customer base.')
       )
       .describe('What the job entails')
       .optional(),
@@ -52,7 +52,7 @@ export const jobSchema = z
       .optional(),
     meta: metaSchema
       .describe(
-        'The schema version and any other tooling configuration lives here',
+        'The schema version and any other tooling configuration lives here'
       )
       .optional(),
   })

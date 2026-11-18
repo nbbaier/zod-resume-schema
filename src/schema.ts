@@ -25,7 +25,7 @@ export const resumeSchema = z
       .string()
       .url()
       .describe(
-        'link to the version of the schema that can validate the resume',
+        'link to the version of the schema that can validate the resume'
       )
       .optional(),
     basics: basicsSchema.optional(),
@@ -35,13 +35,13 @@ export const resumeSchema = z
     awards: z
       .array(awardSchema)
       .describe(
-        'Specify any awards you have received throughout your professional career',
+        'Specify any awards you have received throughout your professional career'
       )
       .optional(),
     certificates: z
       .array(certificateSchema)
       .describe(
-        'Specify any certificates you have received throughout your professional career',
+        'Specify any certificates you have received throughout your professional career'
       )
       .optional(),
     publications: z
@@ -67,7 +67,7 @@ export const resumeSchema = z
       .optional(),
     meta: metaSchema
       .describe(
-        'The schema version and any other tooling configuration lives here',
+        'The schema version and any other tooling configuration lives here'
       )
       .optional(),
   })

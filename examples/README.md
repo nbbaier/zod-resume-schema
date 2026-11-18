@@ -40,9 +40,7 @@ const result = v.validate(resumeData, schema);
 
 ## JSON Schema Generation
 
-The published `schema.json` and `job-schema.json` are generated from the Zod
-schemas by `bun run build` (see `scripts/build-schemas.ts` at the repo root).
-Never edit them by hand — change the Zod schemas in `src/` and rebuild.
+The published `schema.json` and `job-schema.json` are generated from the Zod schemas by `bun run build` (see `scripts/build-schemas.ts` at the repo root). Never edit them by hand — change the Zod schemas in `src/` and rebuild.
 
 ## Why Zod?
 

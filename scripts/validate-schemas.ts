@@ -12,8 +12,8 @@ const rootDir = join(import.meta.dir, '..');
 const metaSchema = JSON.parse(
   readFileSync(
     join(rootDir, 'node_modules/json-metaschema/draft-07-schema.json'),
-    'utf-8',
-  ),
+    'utf-8'
+  )
 );
 
 const validator = new Validator();

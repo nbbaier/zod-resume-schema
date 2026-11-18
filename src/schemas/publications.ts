@@ -13,13 +13,13 @@ export const publicationSchema = z
       .string()
       .url()
       .describe(
-        'e.g. http://www.computer.org.example.com/csdl/mags/co/1996/10/rx069-abs.html',
+        'e.g. http://www.computer.org.example.com/csdl/mags/co/1996/10/rx069-abs.html'
       )
       .optional(),
     summary: z
       .string()
       .describe(
-        'Short summary of publication. e.g. Discussion of the World Wide Web, HTTP, HTML.',
+        'Short summary of publication. e.g. Discussion of the World Wide Web, HTTP, HTML.'
       )
       .optional(),
   })

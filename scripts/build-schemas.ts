@@ -24,7 +24,7 @@ function generateSchema(
   schemaId: string,
   outputPath: string,
   title: string,
-  description: string,
+  description: string
 ): void {
   const jsonSchema = z.toJSONSchema(zodSchema, { target: 'draft-7' }) as Record<
     string,
@@ -51,7 +51,7 @@ generateSchema(
   RESUME_SCHEMA_ID,
   join(rootDir, 'schema.json'),
   'Resume Schema',
-  'JSON Resume Schema - Defines the structure of a resume document',
+  'JSON Resume Schema - Defines the structure of a resume document'
 );
 
 generateSchema(
@@ -59,5 +59,5 @@ generateSchema(
   JOB_SCHEMA_ID,
   join(rootDir, 'job-schema.json'),
   'Job Description Schema',
-  'JSON Resume Job Schema - Defines the structure of a job posting document',
+  'JSON Resume Job Schema - Defines the structure of a job posting document'
 );
