@@ -1,6 +1,8 @@
-import { ZodError } from 'zod';
-import { resumeSchema, Resume } from './schema';
-import { jobSchema, Job } from './job-schema';
+import type { ZodError } from 'zod';
+import type { Resume } from './schema';
+import { resumeSchema } from './schema';
+import type { Job } from './job-schema';
+import { jobSchema } from './job-schema';
 
 /**
  * Validation error format compatible with the old jsonschema validator

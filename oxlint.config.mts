@@ -107,12 +107,6 @@ export default defineConfig({
       },
     },
     {
-      files: ['examples/typescript-usage.ts', 'src/validator.ts'],
-      rules: {
-        'typescript/consistent-type-imports': 'off',
-      },
-    },
-    {
       files: ['scripts/build-schemas.ts', 'scripts/validate-schemas.ts'],
       rules: {
         'unicorn/import-style': 'off',
