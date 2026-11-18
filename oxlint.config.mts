@@ -95,12 +95,6 @@ export default defineConfig({
       },
     },
     {
-      files: ['scripts/build-schemas.ts', 'scripts/validate-schemas.ts'],
-      rules: {
-        'unicorn/import-style': 'off',
-      },
-    },
-    {
       files: ['examples/javascript-usage.js', 'examples/typescript-usage.ts'],
       rules: {
         'unicorn/no-array-for-each': 'off',

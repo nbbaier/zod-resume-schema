@@ -5,13 +5,13 @@
  */
 
 import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
+import path from 'node:path';
 import { Validator } from 'jsonschema';
 
-const rootDir = join(import.meta.dir, '..');
+const rootDir = path.join(import.meta.dir, '..');
 const metaSchema = JSON.parse(
   readFileSync(
-    join(rootDir, 'node_modules/json-metaschema/draft-07-schema.json'),
+    path.join(rootDir, 'node_modules/json-metaschema/draft-07-schema.json'),
     'utf-8'
   )
 );
@@ -20,7 +20,7 @@ const validator = new Validator();
 
 let failed = false;
 for (const file of ['schema.json', 'job-schema.json']) {
-  const schema = JSON.parse(readFileSync(join(rootDir, file), 'utf-8'));
+  const schema = JSON.parse(readFileSync(path.join(rootDir, file), 'utf-8'));
   const result = validator.validate(schema, metaSchema);
   if (result.valid) {
     console.log(`${file} is a valid draft-07 schema`);
