@@ -40,26 +40,6 @@ export default defineConfig({
     },
     // Progressive migration: remove one rule at a time as its files are fixed.
     {
-      files: [
-        'test/awards.spec.js',
-        'test/basics.spec.js',
-        'test/certificates.spec.js',
-        'test/education.spec.js',
-        'test/interests.spec.js',
-        'test/languages.spec.js',
-        'test/meta.spec.js',
-        'test/projects.spec.js',
-        'test/publications.spec.js',
-        'test/references.spec.js',
-        'test/skills.spec.js',
-        'test/volunteer.spec.js',
-        'test/work.spec.js',
-      ],
-      rules: {
-        'arrow-body-style': 'off',
-      },
-    },
-    {
       files: ['scripts/build-schemas.ts', 'src/validator.ts'],
       rules: {
         'func-style': 'off',
