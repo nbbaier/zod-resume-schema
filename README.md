@@ -68,6 +68,32 @@ require("resume-schema").schema;
 
 We encourage anyone who's interested in participating in the formation of this standard to join the discussions [here on GitHub](https://github.com/jsonresume/resume-schema/issues). Also feel free to fork this project and submit new ideas to add to the JSON Resume Schema standard. To make sure all formatting is kept in check, please install the [EditorConfig plugin](http://editorconfig.org/) for your editor of choice.
 
+### Development checks
+
+Development tooling uses Bun and Node.js `^22.22.2 || >=24.15.0`
+(Ultracite's requirement). The library's runtime requirement is unchanged.
+
+```sh
+bun install
+bun run check
+bun run fix
+bun run test
+```
+
+Ultracite uses Oxlint and Oxfmt with the core and Vitest lint presets.
+The former Prettier `singleQuote: true` setting is retained in
+`oxfmt.config.mts`. Generated schemas are excluded from formatting; regenerate
+them with `bun run build`. Import and package-key sorting are deferred to keep
+this migration formatting-only.
+
+Project-specific overrides retain `.spec.js` section tests, callback API
+coverage, strict boolean assertions, and the CommonJS compatibility shim.
+Temporary overrides under the progressive migration comment in
+`oxlint.config.mts` disable only rules in files that fail them today. New files
+still receive the full presets. To migrate a batch, remove one rule's temporary
+override, run `bun run fix`, fix remaining errors, then run `bun run check` and
+`bun run test`. Do not disable additional rules globally to hide new errors.
+
 ### Versioning
 
 JSON Resume Schema adheres to Semantic Versioning 2.0.0. If there is a violation of

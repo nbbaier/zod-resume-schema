@@ -35,7 +35,9 @@
 		"validate": "bun scripts/validate-schemas.ts",
 		"test-units": "vitest run",
 		"preversion": "bun test",
-		"postversion": "git push --follow-tags"
+		"postversion": "git push --follow-tags",
+		"check": "ultracite check",
+		"fix": "ultracite fix"
 	},
 	"repository": {
 		"type": "git",
@@ -61,7 +63,10 @@
 		"@types/node": "^26.6.6",
 		"@vitest/coverage-v8": "^5.1.1",
 		"json-metaschema": "^1.3.0",
+		"oxfmt": "^0.75.0",
+		"oxlint": "^1.90.0",
 		"typescript": "^7.0.2",
+		"ultracite": "8.3.0",
 		"vitest": "^5.1.1"
 	},
 	"engines": {
