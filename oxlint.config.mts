@@ -60,12 +60,6 @@ export default defineConfig({
       },
     },
     {
-      files: ['scripts/validate-schemas.ts'],
-      rules: {
-        curly: 'off',
-      },
-    },
-    {
       files: ['scripts/build-schemas.ts', 'src/validator.ts'],
       rules: {
         'func-style': 'off',

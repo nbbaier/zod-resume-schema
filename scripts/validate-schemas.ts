@@ -33,4 +33,6 @@ for (const file of ['schema.json', 'job-schema.json']) {
   }
 }
 
-if (failed) process.exit(1);
+if (failed) {
+  process.exit(1);
+}
