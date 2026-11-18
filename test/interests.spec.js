@@ -5,7 +5,7 @@ import fixtures from './__test__/interests.json' with { type: 'json' };
 test('interests - valid', () => {
   return new Promise((resolve) => {
     validate(fixtures.interestsValid, (err, valid) => {
-      expect(err).toBe(null);
+      expect(err).toBeNull();
       expect(valid).toBe(true);
       resolve();
     });
@@ -15,7 +15,7 @@ test('interests - valid', () => {
 test('interests - invalid', () => {
   return new Promise((resolve) => {
     validate(fixtures.interestsInvalid, (err, valid) => {
-      expect(err).not.toBe(null);
+      expect(err).not.toBeNull();
       expect(valid).toBe(false);
       resolve();
     });
@@ -25,7 +25,7 @@ test('interests - invalid', () => {
 test('interests[].name - valid', () => {
   return new Promise((resolve) => {
     validate(fixtures.nameValid, (err, valid) => {
-      expect(err).toBe(null);
+      expect(err).toBeNull();
       expect(valid).toBe(true);
       resolve();
     });
@@ -35,7 +35,7 @@ test('interests[].name - valid', () => {
 test('interests[].name - invalid', () => {
   return new Promise((resolve) => {
     validate(fixtures.nameInvalid, (err, valid) => {
-      expect(err).not.toBe(null);
+      expect(err).not.toBeNull();
       expect(valid).toBe(false);
       resolve();
     });
@@ -45,7 +45,7 @@ test('interests[].name - invalid', () => {
 test('interests[].keywords - valid', () => {
   return new Promise((resolve) => {
     validate(fixtures.keywordsValid, (err, valid) => {
-      expect(err).toBe(null);
+      expect(err).toBeNull();
       expect(valid).toBe(true);
       resolve();
     });
@@ -55,7 +55,7 @@ test('interests[].keywords - valid', () => {
 test('interests[].keywords - invalid', () => {
   return new Promise((resolve) => {
     validate(fixtures.keywordsInvalid, (err, valid) => {
-      expect(err).not.toBe(null);
+      expect(err).not.toBeNull();
       expect(valid).toBe(false);
       resolve();
     });
@@ -65,7 +65,7 @@ test('interests[].keywords - invalid', () => {
 test('interests[].keywords[item] - valid', () => {
   return new Promise((resolve) => {
     validate(fixtures.keywordsItemValid, (err, valid) => {
-      expect(err).toBe(null);
+      expect(err).toBeNull();
       expect(valid).toBe(true);
       resolve();
     });
@@ -75,7 +75,7 @@ test('interests[].keywords[item] - valid', () => {
 test('interests[].keywords[item] - invalid', () => {
   return new Promise((resolve) => {
     validate(fixtures.keywordsItemInvalid, (err, valid) => {
-      expect(err).not.toBe(null);
+      expect(err).not.toBeNull();
       expect(valid).toBe(false);
       resolve();
     });

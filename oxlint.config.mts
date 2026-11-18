@@ -60,21 +60,9 @@ export default defineConfig({
       },
     },
     {
-      files: ['scripts/validate-schemas.ts'],
-      rules: {
-        curly: 'off',
-      },
-    },
-    {
       files: ['scripts/build-schemas.ts', 'src/validator.ts'],
       rules: {
         'func-style': 'off',
-      },
-    },
-    {
-      files: ['src/index.ts'],
-      rules: {
-        'import/first': 'off',
       },
     },
     {
@@ -100,34 +88,10 @@ export default defineConfig({
       },
     },
     {
-      files: ['validator.js'],
-      rules: {
-        'object-shorthand': 'off',
-      },
-    },
-    {
       files: ['src/schemas/iso8601.ts'],
       rules: {
         'prefer-named-capture-group': 'off',
         'require-unicode-regexp': 'off',
-      },
-    },
-    {
-      files: ['scripts/build-schemas.ts'],
-      rules: {
-        'prefer-template': 'off',
-      },
-    },
-    {
-      files: ['examples/typescript-usage.ts', 'src/validator.ts'],
-      rules: {
-        'typescript/consistent-type-imports': 'off',
-      },
-    },
-    {
-      files: ['scripts/build-schemas.ts', 'scripts/validate-schemas.ts'],
-      rules: {
-        'unicorn/import-style': 'off',
       },
     },
     {
@@ -156,46 +120,7 @@ export default defineConfig({
       ],
       plugins: ['vitest'],
       rules: {
-        'vitest/consistent-test-filename': 'off',
-        'vitest/prefer-to-be-falsy': 'off',
-        'vitest/prefer-to-be-truthy': 'off',
         'vitest/require-top-level-describe': 'off',
-      },
-    },
-    {
-      files: ['test/dates.spec.js'],
-      plugins: ['vitest'],
-      rules: {
-        'vitest/prefer-strict-equal': 'off',
-      },
-    },
-    {
-      files: [
-        'test/awards.spec.js',
-        'test/basics.spec.js',
-        'test/certificates.spec.js',
-        'test/dates.spec.js',
-        'test/education.spec.js',
-        'test/interests.spec.js',
-        'test/languages.spec.js',
-        'test/meta.spec.js',
-        'test/projects.spec.js',
-        'test/publications.spec.js',
-        'test/references.spec.js',
-        'test/skills.spec.js',
-        'test/volunteer.spec.js',
-        'test/work.spec.js',
-      ],
-      plugins: ['vitest'],
-      rules: {
-        'vitest/prefer-to-be': 'off',
-      },
-    },
-    {
-      files: ['test/job.spec.js'],
-      plugins: ['vitest'],
-      rules: {
-        'vitest/require-to-throw-message': 'off',
       },
     },
   ],

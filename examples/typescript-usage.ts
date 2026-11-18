@@ -2,8 +2,8 @@
  * TypeScript Usage Examples for JSON Resume Schema with Zod
  */
 
+import type { Resume } from '@jsonresume/schema';
 import {
-  Resume,
   validateResume,
   parseResume,
   basicsSchema,

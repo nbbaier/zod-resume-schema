@@ -85,7 +85,7 @@ test('job schema - parseJob throws on invalid data', () => {
     title: 'Developer',
     remote: 'InvalidValue',
   };
-  expect(() => parseJob(invalidJob)).toThrow();
+  expect(() => parseJob(invalidJob)).toThrow('Invalid option');
 });
 
 test('job schema - parseJob returns typed data on valid input', () => {

@@ -8,7 +8,7 @@ test.each([
   ['YYYY', fixtures.year],
 ])('dates - %s', (_format, date) => {
   validate({ work: [{ startDate: date }] }, (err, valid) => {
-    expect(err).toBe(null);
+    expect(err).toBeNull();
     expect(valid).toBe(true);
   });
 });
@@ -16,7 +16,7 @@ test.each([
 test('dates - invalid', () => {
   validate({ work: [{ startDate: fixtures.invalid }] }, (err, valid) => {
     expect(valid).toBe(false);
-    expect(err).toEqual([
+    expect(err).toStrictEqual([
       expect.objectContaining({ path: ['work', '0', 'startDate'] }),
     ]);
   });

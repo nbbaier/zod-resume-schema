@@ -8,7 +8,7 @@
  */
 
 import { writeFileSync } from 'node:fs';
-import { join } from 'node:path';
+import path from 'node:path';
 import { z } from 'zod';
 import { resumeSchema } from '../src/schema';
 import { jobSchema } from '../src/job-schema';
@@ -40,16 +40,16 @@ function generateSchema(
     ...jsonSchema,
   };
 
-  writeFileSync(outputPath, JSON.stringify(output, null, 2) + '\n');
+  writeFileSync(outputPath, `${JSON.stringify(output, null, 2)}\n`);
   console.log(`Generated ${outputPath}`);
 }
 
-const rootDir = join(import.meta.dir, '..');
+const rootDir = path.join(import.meta.dir, '..');
 
 generateSchema(
   resumeSchema,
   RESUME_SCHEMA_ID,
-  join(rootDir, 'schema.json'),
+  path.join(rootDir, 'schema.json'),
   'Resume Schema',
   'JSON Resume Schema - Defines the structure of a resume document'
 );
@@ -57,7 +57,7 @@ generateSchema(
 generateSchema(
   jobSchema,
   JOB_SCHEMA_ID,
-  join(rootDir, 'job-schema.json'),
+  path.join(rootDir, 'job-schema.json'),
   'Job Description Schema',
   'JSON Resume Job Schema - Defines the structure of a job posting document'
 );
