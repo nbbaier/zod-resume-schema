@@ -123,12 +123,5 @@ export default defineConfig({
         'vitest/require-top-level-describe': 'off',
       },
     },
-    {
-      files: ['test/job.spec.js'],
-      plugins: ['vitest'],
-      rules: {
-        'vitest/require-to-throw-message': 'off',
-      },
-    },
   ],
 });
