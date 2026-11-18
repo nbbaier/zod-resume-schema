@@ -40,7 +40,7 @@ function generateSchema(
     ...jsonSchema,
   };
 
-  writeFileSync(outputPath, JSON.stringify(output, null, 2) + '\n');
+  writeFileSync(outputPath, `${JSON.stringify(output, null, 2)}\n`);
   console.log(`Generated ${outputPath}`);
 }
 

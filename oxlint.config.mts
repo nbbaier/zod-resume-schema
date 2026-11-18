@@ -113,12 +113,6 @@ export default defineConfig({
       },
     },
     {
-      files: ['scripts/build-schemas.ts'],
-      rules: {
-        'prefer-template': 'off',
-      },
-    },
-    {
       files: ['examples/typescript-usage.ts', 'src/validator.ts'],
       rules: {
         'typescript/consistent-type-imports': 'off',
