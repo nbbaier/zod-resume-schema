@@ -72,12 +72,6 @@ export default defineConfig({
       },
     },
     {
-      files: ['src/index.ts'],
-      rules: {
-        'import/first': 'off',
-      },
-    },
-    {
       files: [
         'examples/javascript-usage.js',
         'examples/typescript-usage.ts',

@@ -5,6 +5,10 @@
  * Provides type-safe validation and TypeScript types for resume data.
  */
 
+import { jobSchema } from './job-schema';
+import { resumeSchema } from './schema';
+import { validate } from './validator';
+
 // Main schema and types
 export { resumeSchema, type Resume } from './schema';
 export { jobSchema, type Job, remoteLevel } from './job-schema';
@@ -45,10 +49,6 @@ export {
 } from './validator';
 
 // Default export for backward compatibility
-import { validate } from './validator';
-import { resumeSchema } from './schema';
-import { jobSchema } from './job-schema';
-
 export default {
   validate,
   schema: resumeSchema,
