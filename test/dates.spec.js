@@ -8,7 +8,7 @@ test.each([
   ['YYYY', fixtures.year],
 ])('dates - %s', (_format, date) => {
   validate({ work: [{ startDate: date }] }, (err, valid) => {
-    expect(err).toBe(null);
+    expect(err).toBeNull();
     expect(valid).toBe(true);
   });
 });

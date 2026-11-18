@@ -5,7 +5,7 @@ import fixtures from './__test__/languages.json' with { type: 'json' };
 test('languages - valid', () => {
   return new Promise((resolve) => {
     validate(fixtures.languagesValid, (err, valid) => {
-      expect(err).toBe(null);
+      expect(err).toBeNull();
       expect(valid).toBe(true);
       resolve();
     });
@@ -15,7 +15,7 @@ test('languages - valid', () => {
 test('languages - invalid', () => {
   return new Promise((resolve) => {
     validate(fixtures.languagesInvalid, (err, valid) => {
-      expect(err).not.toBe(null);
+      expect(err).not.toBeNull();
       expect(valid).toBe(false);
       resolve();
     });
@@ -25,7 +25,7 @@ test('languages - invalid', () => {
 test('languages[].language - valid', () => {
   return new Promise((resolve) => {
     validate(fixtures.languageValid, (err, valid) => {
-      expect(err).toBe(null);
+      expect(err).toBeNull();
       expect(valid).toBe(true);
       resolve();
     });
@@ -35,7 +35,7 @@ test('languages[].language - valid', () => {
 test('languages[].language - invalid', () => {
   return new Promise((resolve) => {
     validate(fixtures.languageInvalid, (err, valid) => {
-      expect(err).not.toBe(null);
+      expect(err).not.toBeNull();
       expect(valid).toBe(false);
       resolve();
     });
@@ -45,7 +45,7 @@ test('languages[].language - invalid', () => {
 test('languages[].fluency - valid', () => {
   return new Promise((resolve) => {
     validate(fixtures.fluencyValid, (err, valid) => {
-      expect(err).toBe(null);
+      expect(err).toBeNull();
       expect(valid).toBe(true);
       resolve();
     });
@@ -55,7 +55,7 @@ test('languages[].fluency - valid', () => {
 test('languages[].fluency - invalid', () => {
   return new Promise((resolve) => {
     validate(fixtures.fluencyInvalid, (err, valid) => {
-      expect(err).not.toBe(null);
+      expect(err).not.toBeNull();
       expect(valid).toBe(false);
       resolve();
     });
