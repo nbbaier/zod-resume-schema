@@ -62,12 +62,6 @@ export default defineConfig({
       },
     },
     {
-      files: ['src/validator.ts'],
-      rules: {
-        'node/callback-return': 'off',
-      },
-    },
-    {
       files: ['src/schemas/iso8601.ts'],
       rules: {
         'prefer-named-capture-group': 'off',
