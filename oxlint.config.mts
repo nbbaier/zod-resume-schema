@@ -156,9 +156,6 @@ export default defineConfig({
       ],
       plugins: ['vitest'],
       rules: {
-        'vitest/consistent-test-filename': 'off',
-        'vitest/prefer-to-be-falsy': 'off',
-        'vitest/prefer-to-be-truthy': 'off',
         'vitest/require-top-level-describe': 'off',
       },
     },
