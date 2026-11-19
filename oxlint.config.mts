@@ -56,12 +56,6 @@ export default defineConfig({
       },
     },
     {
-      files: ['examples/typescript-usage.ts'],
-      rules: {
-        'no-unused-vars': 'off',
-      },
-    },
-    {
       files: ['src/schemas/iso8601.ts'],
       rules: {
         'prefer-named-capture-group': 'off',
