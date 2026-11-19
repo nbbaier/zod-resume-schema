@@ -63,12 +63,6 @@ export default defineConfig({
       },
     },
     {
-      files: ['examples/javascript-usage.js', 'examples/typescript-usage.ts'],
-      rules: {
-        'unicorn/no-array-for-each': 'off',
-      },
-    },
-    {
       files: [
         'test/awards.spec.js',
         'test/basics.spec.js',

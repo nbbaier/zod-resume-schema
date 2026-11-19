@@ -100,7 +100,7 @@ const invalidResume = {
 const invalidResult = validateResume(invalidResume);
 if (!invalidResult.valid) {
   console.log('Validation errors:');
-  invalidResult.errors?.forEach((err) => {
+  for (const err of invalidResult.errors ?? []) {
     console.log(`  - ${err.path.join('.')}: ${err.message}`);
-  });
+  }
 }
