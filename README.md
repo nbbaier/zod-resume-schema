@@ -77,7 +77,7 @@ bun run test
 
 Ultracite uses Oxlint and Oxfmt with the core and Vitest lint presets. The former Prettier `singleQuote: true` setting is retained in `oxfmt.config.mts`. Generated schemas are excluded from formatting; regenerate them with `bun run build`. Import and package-key sorting are deferred to keep this migration formatting-only.
 
-Project-specific overrides retain `.spec.js` section tests, callback API coverage, strict boolean assertions, and the CommonJS compatibility shim. Temporary overrides under the progressive migration comment in `oxlint.config.mts` disable only rules in files that fail them today. New files still receive the full presets. To migrate a batch, remove one rule's temporary override, run `bun run fix`, fix remaining errors, then run `bun run check` and `bun run test`. Do not disable additional rules globally to hide new errors.
+Project-specific overrides retain `.spec.js` section tests, callback API coverage, strict boolean assertions, and the CommonJS compatibility shim. All other preset rules apply to the whole codebase. Fix new lint errors rather than adding overrides to hide them.
 
 ### Versioning
 

@@ -38,29 +38,5 @@ export default defineConfig({
       files: ['validator.js', 'examples/javascript-usage.js'],
       rules: { 'unicorn/prefer-module': 'off' },
     },
-    // Progressive migration: remove one rule at a time as its files are fixed.
-    {
-      files: [
-        'test/awards.spec.js',
-        'test/basics.spec.js',
-        'test/certificates.spec.js',
-        'test/dates.spec.js',
-        'test/education.spec.js',
-        'test/interests.spec.js',
-        'test/job.spec.js',
-        'test/languages.spec.js',
-        'test/meta.spec.js',
-        'test/projects.spec.js',
-        'test/publications.spec.js',
-        'test/references.spec.js',
-        'test/skills.spec.js',
-        'test/volunteer.spec.js',
-        'test/work.spec.js',
-      ],
-      plugins: ['vitest'],
-      rules: {
-        'vitest/require-top-level-describe': 'off',
-      },
-    },
   ],
 });
