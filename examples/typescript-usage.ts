@@ -3,13 +3,7 @@
  */
 
 import type { Resume } from '@jsonresume/schema';
-import {
-  validateResume,
-  parseResume,
-  basicsSchema,
-  workSchema,
-  educationSchema,
-} from '@jsonresume/schema';
+import { validateResume, parseResume, basicsSchema } from '@jsonresume/schema';
 
 // Example 1: Type-safe resume object
 const myResume: Resume = {
@@ -91,6 +85,8 @@ console.log('Basics validation:', basicsResult.success);
 console.log('\nExample 4: Type inference');
 type WorkExperience = typeof myResume.work;
 // TypeScript knows this is an array of Work objects or undefined
+const workExperience: WorkExperience = myResume.work;
+console.log('Work entries:', workExperience?.length ?? 0);
 
 // Example 6: Handling invalid data
 console.log('\nExample 5: Handling invalid data');
