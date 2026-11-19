@@ -10,7 +10,7 @@ import { z } from 'zod';
 export const iso8601Schema = z
   .string()
   .regex(
-    /^([1-2][0-9]{3}-[0-1][0-9]-[0-3][0-9]|[1-2][0-9]{3}-[0-1][0-9]|[1-2][0-9]{3})$/u,
+    /^(?:[1-2][0-9]{3}-[0-1][0-9]-[0-3][0-9]|[1-2][0-9]{3}-[0-1][0-9]|[1-2][0-9]{3})$/u,
     'Date must be in ISO 8601 format (YYYY-MM-DD, YYYY-MM, or YYYY)'
   )
   .describe(

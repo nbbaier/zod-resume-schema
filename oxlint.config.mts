@@ -40,12 +40,6 @@ export default defineConfig({
     },
     // Progressive migration: remove one rule at a time as its files are fixed.
     {
-      files: ['src/schemas/iso8601.ts'],
-      rules: {
-        'prefer-named-capture-group': 'off',
-      },
-    },
-    {
       files: [
         'test/awards.spec.js',
         'test/basics.spec.js',
