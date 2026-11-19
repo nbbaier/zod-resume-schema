@@ -19,13 +19,13 @@ const RESUME_SCHEMA_ID =
 const JOB_SCHEMA_ID =
   'https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/job-schema.json';
 
-function generateSchema(
+const generateSchema = (
   zodSchema: z.ZodType,
   schemaId: string,
   outputPath: string,
   title: string,
   description: string
-): void {
+): void => {
   const jsonSchema = z.toJSONSchema(zodSchema, { target: 'draft-7' }) as Record<
     string,
     unknown
@@ -42,7 +42,7 @@ function generateSchema(
 
   writeFileSync(outputPath, `${JSON.stringify(output, null, 2)}\n`);
   console.log(`Generated ${outputPath}`);
-}
+};
 
 const rootDir = path.join(import.meta.dir, '..');
 

@@ -40,12 +40,6 @@ export default defineConfig({
     },
     // Progressive migration: remove one rule at a time as its files are fixed.
     {
-      files: ['scripts/build-schemas.ts', 'src/validator.ts'],
-      rules: {
-        'func-style': 'off',
-      },
-    },
-    {
       files: ['src/schemas/iso8601.ts'],
       rules: {
         'prefer-named-capture-group': 'off',
