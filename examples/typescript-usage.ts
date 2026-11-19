@@ -93,7 +93,8 @@ console.log('\nExample 5: Handling invalid data');
 const invalidResume = {
   basics: {
     name: 'Test User',
-    email: 'not-an-email', // Invalid email
+    // Invalid email
+    email: 'not-an-email',
   },
 };
 
