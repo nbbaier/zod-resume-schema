@@ -43,7 +43,6 @@ export default defineConfig({
       files: ['src/schemas/iso8601.ts'],
       rules: {
         'prefer-named-capture-group': 'off',
-        'require-unicode-regexp': 'off',
       },
     },
     {
