@@ -72,9 +72,10 @@ export function validate(
 
   if (result.valid) {
     callback(null, true);
-  } else {
-    callback(result.errors || [], false);
+    return;
   }
+
+  callback(result.errors || [], false);
 }
 
 /**
