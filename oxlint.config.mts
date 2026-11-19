@@ -46,16 +46,6 @@ export default defineConfig({
       },
     },
     {
-      files: [
-        'examples/javascript-usage.js',
-        'examples/typescript-usage.ts',
-        'test/job.spec.js',
-      ],
-      rules: {
-        'no-inline-comments': 'off',
-      },
-    },
-    {
       files: ['src/schemas/iso8601.ts'],
       rules: {
         'prefer-named-capture-group': 'off',

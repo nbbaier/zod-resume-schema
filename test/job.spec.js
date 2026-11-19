@@ -52,7 +52,8 @@ test('job schema - valid with all fields', () => {
 test('job schema - invalid remote value', () => {
   const invalidJob = {
     title: 'Developer',
-    remote: 'InvalidValue', // Should be Full, Hybrid, or None
+    // Should be Full, Hybrid, or None
+    remote: 'InvalidValue',
   };
   const result = validateJob(invalidJob);
   expect(result.valid).toBe(false);
@@ -63,7 +64,8 @@ test('job schema - invalid remote value', () => {
 test('job schema - invalid date format', () => {
   const invalidJob = {
     title: 'Developer',
-    date: '2024/07/15', // Should be YYYY-MM-DD or YYYY-MM or YYYY
+    // Should be YYYY-MM-DD or YYYY-MM or YYYY
+    date: '2024/07/15',
   };
   const result = validateJob(invalidJob);
   expect(result.valid).toBe(false);
@@ -73,7 +75,8 @@ test('job schema - invalid date format', () => {
 test('job schema - invalid skills type', () => {
   const invalidJob = {
     title: 'Developer',
-    skills: 'JavaScript', // Should be an array
+    // Should be an array
+    skills: 'JavaScript',
   };
   const result = validateJob(invalidJob);
   expect(result.valid).toBe(false);

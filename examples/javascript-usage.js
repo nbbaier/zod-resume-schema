@@ -141,7 +141,8 @@ const invalidResume = {
   },
   work: [
     {
-      name: 123, // Should be string
+      // Should be string
+      name: 123,
       startDate: 'invalid-date',
     },
   ],
