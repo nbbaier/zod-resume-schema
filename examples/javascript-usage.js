@@ -150,7 +150,7 @@ const invalidResume = {
 const invalidResult = validateResume(invalidResume);
 if (!invalidResult.valid) {
   console.log('Found', invalidResult.errors.length, 'validation errors:');
-  invalidResult.errors.forEach((err, i) => {
+  for (const [i, err] of invalidResult.errors.entries()) {
     console.log(`${i + 1}. Field: ${err.path.join('.')} - ${err.message}`);
-  });
+  }
 }
